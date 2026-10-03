@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0A1120">
+<meta name="color-scheme" content="dark light">
 <meta name="description" content="ميزان، إدارة الراتب والعمل الحر">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
@@ -13,16 +14,27 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="ميزان">
 <title>ميزان</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Alexandria';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/alexandria-arabic-600-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:'Alexandria';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/alexandria-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Alexandria';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/alexandria-arabic-700-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:'Alexandria';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/alexandria-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Alexandria';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/alexandria-arabic-800-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:'Alexandria';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/alexandria-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style>
 <style>
 :root{
   --bg:#0A1120;--bg2:#0E172A;--card:#121C33;--card2:#17233E;--line:#22304E;--ink:#ECEFF6;--muted:#8B97B2;
   --gold:#D8B26A;--gold2:#F0D8A2;--sal:#3CCAA0;--fr:#A98CF6;--pos:#46D39C;--neg:#FF7C7C;--warn:#F2B35A;
   --shadow:0 22px 44px -26px rgba(0,0,0,.8);--r1:20px;--r2:14px;--r3:9px;
-  --display:"Alexandria","IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;
-  --body:"IBM Plex Sans Arabic","Segoe UI","Noto Sans Arabic",Tahoma,sans-serif;
+  --display:"Alexandria","IBM Plex Sans Arabic",-apple-system,"Segoe UI",Tahoma,sans-serif;
+  --body:"IBM Plex Sans Arabic",-apple-system,"Segoe UI","Noto Sans Arabic",Tahoma,sans-serif;
 }
 [data-theme=light]{
   --bg:#EDF0F6;--bg2:#E3E8F1;--card:#FFFFFF;--card2:#F4F6FB;--line:#D8DEEA;--ink:#101A2E;--muted:#5C6883;
@@ -316,6 +328,12 @@ svg text{font-family:var(--body)}
 .tier.cl{background:color-mix(in srgb,var(--cc) 25%,transparent);color:var(--cc);border:0}
 .ffrow{display:grid;grid-template-columns:1fr 130px auto auto;gap:8px;align-items:center;padding:9px 12px;background:var(--card2);border-radius:var(--r3);margin-bottom:6px;border-right:3px solid var(--fr)}
 @media (max-width:600px){.ffrow{grid-template-columns:1fr 1fr}}
+.srcseg{display:inline-flex;align-items:center;gap:2px;margin-right:8px;vertical-align:middle;font-size:11.5px}
+.srcseg .muted{margin-left:4px}
+.srcseg button{border:1px solid var(--line);background:var(--card2);color:var(--muted);font-size:11.5px;font-weight:700;padding:2px 9px;cursor:pointer;border-radius:0}
+.srcseg button:first-of-type{border-radius:0 99px 99px 0}.srcseg button:last-of-type{border-radius:99px 0 0 99px;border-right:0}
+.srcseg button.on.s{background:rgba(60,202,160,.18);color:var(--sal);border-color:rgba(60,202,160,.45)}
+.srcseg button.on.f{background:rgba(169,140,246,.2);color:var(--fr);border-color:rgba(169,140,246,.5)}
 .linkbtn{border:0;background:none;color:var(--fr);font-size:12px;font-weight:600;cursor:pointer;padding:0;margin-right:8px}
 .linkbtn:hover{text-decoration:underline}
 .modal{position:fixed;inset:0;background:rgba(5,9,18,.62);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:20;padding:20px}
@@ -351,6 +369,24 @@ svg text{font-family:var(--body)}
   .led .after{width:auto;min-width:86px}
   .led input[type=number]{width:118px}
   .wc-row{gap:12px}
+}
+/* consistent controls across phones and desktop */
+input,select,button,textarea{-webkit-appearance:none;appearance:none;border-radius:var(--r3)}
+*{-webkit-tap-highlight-color:transparent}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23D8B26A' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 12px center;background-size:12px 8px;padding-left:32px!important}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+input[type=number]{-moz-appearance:textfield}
+input::placeholder{color:var(--muted);opacity:.8}
+@media (max-width:960px){input,select{font-size:16px!important}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){
+  .tint{background:var(--card2)!important;border-color:var(--cc)!important}
+  .pcard.tint .pc-h{background:transparent}
+  .pcard.tint input,.pcard.tint select{border-color:var(--line);background:var(--card2)}
+  .pcard.tint .f4 label,.pcard.tint .sec-t{color:var(--cc)}
+  .pcard.tint .split div,.cgrid div{background:var(--card)}
+  .tier.cl{background:transparent;border:1px solid var(--cc)}
+  .nav{background:var(--bg2)!important}
 }
 @media (display-mode: standalone){body{padding-top:env(safe-area-inset-top)}.side{padding-top:calc(14px + env(safe-area-inset-top))}}
 html{-webkit-text-size-adjust:100%}body{overscroll-behavior-y:none}
@@ -449,6 +485,7 @@ function normalize(){
 }
 normalize();
 let ui={page:'dash',m:(S.year===NY?NM:0),open:{},pf:'month',qa:{salary:'',free:''}};
+function yearList(){const st_=S.settings,data=Object.keys(S.years).map(Number);const from=Math.min(+st_.yearFrom||NY-1,...data,S.year),to=Math.max(+st_.yearTo||2030,...data,S.year);const a=[];for(let v=from;v<=to;v++)a.push(v);return a;}
 function Y(yr=S.year){if(!S.years[yr]) S.years[yr]=defYear(); return S.years[yr];}
 function save(msg){S.updatedAt=Date.now();try{localStorage.setItem(KEY,JSON.stringify(S)); toast(msg||'اتحفظ');}catch(e){toast('الحفظ فشل، مساحة المتصفح ممتلئة');} schedulePush();}
 let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1500);}
@@ -640,15 +677,15 @@ function ledger(ax){
   else{const fs=freeSum(m);bal=fs.net;
     rows+=`<tr class="edge"><td class="nm" style="color:var(--gold)">+ الفائض النهائي من كل العملاء<small>${fs.n} ${fs.n===1?'عميل':'عملاء'}، بعد رواتب التيم ${fmt(fs.team)} والتكاليف ${fmt(fs.cost)}</small></td><td class="amt" style="color:var(--gold)">${fmt(fs.net)}</td><td class="after">${cur(bal)}${trk(bal)}</td></tr>`;
     if(c.tax[m]){bal-=c.tax[m];rows+=`<tr><td class="nm" style="color:var(--warn)">← احتياطي الضرايب ${+st().taxPct}%<small>بيروح لحصالة الضرايب لحد ما تدفعها</small></td><td class="amt" style="color:var(--warn)">${fmt(c.tax[m])}</td><td class="after">${cur(bal)}${trk(bal)}</td></tr>`;}}
-  const row=(k,axk)=>{const b=baseOf(k,yr,m),r=recOf(yr,axk,k.id,m),t=b.v+r;bal-=t;
+  const row=(k,axk)=>{const b=baseOf(k,yr,m),r=recOf(yr,axk,k.id,m),t=b.v+r,ded=!(ax==='salary'&&k.src==='free');if(ded) bal-=t;
     const bud=+k.budget,over=bud&&t>bud;
     return `<tr><td class="nm">${esc(k.name)}<span class="tag ${k.kind}">${k.kind==='need'?'احتياج':'رغبة'}</span>${over?'<span class="tag over">تخطى الميزانية</span>':''}${ax==='free'&&axk==='salary'?'<span class="tag" style="background:rgba(169,140,246,.18);color:var(--fr)">مصروف حياة</span>':''}
-      ${ax==='salary'?`<button class="linkbtn" data-click="src" data-id="${k.id}" data-v="free" title="البند ده يتدفع من فلوس العمل الحر مش من الراتب">ادفعه من العمل الحر</button>`:''}
+      ${axk==='salary'?`<span class="srcseg" role="group" aria-label="بيتدفع من"><span class="muted">من</span><button class="${k.src!=='free'?'on s':''}" data-click="src" data-id="${k.id}" data-v="salary" aria-pressed="${k.src!=='free'}">الراتب</button><button class="${k.src==='free'?'on f':''}" data-click="src" data-id="${k.id}" data-v="free" aria-pressed="${k.src==='free'}">العمل الحر</button></span>`:''}
       <small>${r?`عليه ${fmt(r)} مصروفات مسجلة`:''}${r&&bud?'، ':''}${bud?`الميزانية ${fmt(bud)}`:''}</small>${bud?`<div class="bud ${over?'over':''}"><i style="width:${Math.min(100,pc(t,bud))}%"></i></div>`:''}</td>
       <td><input type="number" inputmode="decimal" min="0" step="any" class="${b.auto?'auto':''}" data-act="base" data-axis="${axk}" data-id="${k.id}" data-k="b-${k.id}" value="${b.v||''}" placeholder="0" aria-label="${esc(k.name)}"></td>
-      <td class="after">${t?cur(bal)+trk(bal):'<span class="muted">0</span>'}</td><td><button class="btn x" data-click="hide" data-axis="${axk}" data-id="${k.id}" title="حذف من ${MONTHS[m]} بس" aria-label="حذف من الشهر ده">حذف</button></td></tr>`;};
+      <td class="after">${!ded?'<span style="font-size:12px;color:var(--fr)">بيتخصم من العمل الحر</span>':t?cur(bal)+trk(bal):'<span class="muted">0</span>'}</td><td><button class="btn x" data-click="hide" data-axis="${axk}" data-id="${k.id}" title="حذف من ${MONTHS[m]} بس" aria-label="حذف من الشهر ده">حذف</button></td></tr>`;};
   const showK=(k,axk)=>!isHidden(k,yr,m)&&!(k.adhoc&&!catTotal(k,axk,yr,m));
-  S.cats[ax].forEach(k=>{if(ax==='salary'&&k.src==='free') return; if(showK(k,ax)) rows+=row(k,ax);});
+  S.cats[ax].forEach(k=>{if(showK(k,ax)) rows+=row(k,ax);});
   if(ax==='free'){S.cats.salary.filter(k=>k.src==='free').forEach(k=>{if(showK(k,'salary')) rows+=row(k,'salary');});
     if(mv){bal-=mv;rows+=`<tr><td class="nm" style="color:var(--sal)">← تحويل للراتب لتغطية العجز</td><td class="amt">${fmt(mv)}</td><td class="after">${cur(bal)}${trk(bal)}</td></tr>`;}}
   y.transfers.filter(t=>t.axis===ax&&t.m===m).forEach(t=>{const g=S.goals.find(x=>x.id===t.goal);bal-=t.amt;
@@ -751,7 +788,7 @@ function pSalary(){
   `<div class="cols"><div>${walletCard('salary',true)}<div style="height:20px"></div>
    <div class="panel"><div class="ph"><div><h2>سجّل مصروف</h2><p class="hint" style="margin:0">بيتضاف على البند في ${MONTHS[m]} ويتخصم من الراتب فورًا.</p></div></div>${quickAdd('salary')}${records('salary')}</div>
    ${deficitBox()}
-   <div class="panel"><h2>الخصم خطوة بخطوة</h2><p class="hint">الخانات المنقطة بالذهبي اتملت تلقائي من البنود الثابتة. امسح الرقم يرجع للثابت، وزرار حذف بيشيل البند من الشهر ده بس.</p>${ledger('salary')}</div></div>
+   <div class="panel"><h2>الخصم خطوة بخطوة</h2><p class="hint">الخانات المنقطة بالذهبي اتملت تلقائي من البنود الثابتة. جنب كل بند تختار يتدفع من الراتب أو من العمل الحر، وزرار حذف بيشيل البند من الشهر ده بس.</p>${ledger('salary')}</div></div>
    <div>${investBox('salary')}
    ${(()=>{const pl=salaryPlan(m);if(!pl) return '<div class="panel"><h2>خطة إدارة الراتب</h2><div class="empty">اكتب راتب الشهر وهتظهرلك الخطة</div></div>';
      return `<div class="panel"><h2>خطة إدارة راتب ${MONTHS[m]}: ${pl.t}</h2><p class="hint" style="margin-bottom:6px">${pl.who}</p><p style="margin:0">${pl.why}</p>
@@ -854,7 +891,7 @@ function pGoals(){
    <div>${investBox('salary')}${investBox('free')}</div></div>`;
 }
 function pSettings(){
-  const s=st(),yrs=[];for(let v=NY-3;v<=NY+2;v++) yrs.push(v);
+  const s=st(),yrs=yearList();
   const catRows=ax=>S.cats[ax].map(k=>`<tr><td><input type="text" data-act="cat" data-axis="${ax}" data-f="name" data-id="${k.id}" data-k="cn-${k.id}" value="${esc(k.name)}"></td>
    <td><select data-act="cat" data-axis="${ax}" data-f="kind" data-id="${k.id}" data-k="ck-${k.id}"><option value="need" ${k.kind==='need'?'selected':''}>احتياج</option><option value="want" ${k.kind==='want'?'selected':''}>رغبة</option></select></td>
    <td><input type="number" min="0" step="any" data-act="cat" data-axis="${ax}" data-f="fixed" data-id="${k.id}" data-k="cf-${k.id}" value="${+k.fixed||''}" placeholder="متغير"></td>
@@ -868,6 +905,7 @@ function pSettings(){
   <div class="panel"><h2>الأساسيات</h2><div class="set">
    <label>الراتب الثابت كل شهر<input type="number" min="0" step="any" data-act="set" data-f="defaultSalary" data-k="s-ds" value="${+s.defaultSalary||''}" placeholder="0"><small>بيتملى أوتوماتيك في كل شهر، وتقدر تغيره لأي شهر لوحده</small></label>
    <label>بداية الحساب<span style="display:flex;gap:6px"><select data-act="set" data-f="startM" data-k="s-sm">${MONTHS.map((n,i)=>`<option value="${i}" ${+s.startM===i?'selected':''}>${n}</option>`).join('')}</select><select data-act="set" data-f="startY" data-k="s-sy">${yrs.map(v=>`<option ${+s.startY===v?'selected':''}>${v}</option>`).join('')}</select></span><small>الشهور اللي قبلها مش بتتحسب</small></label>
+   <label>السنين المتاحة<span style="display:flex;gap:6px;align-items:center"><input type="number" min="2000" max="2100" data-act="set" data-f="yearFrom" data-k="s-yf" value="${yearList()[0]}" aria-label="من سنة"><span class="muted">لـ</span><input type="number" min="2000" max="2100" data-act="set" data-f="yearTo" data-k="s-yt" value="${yearList().slice(-1)[0]}" aria-label="لسنة"></span><small>غير السنين زي ما تحب، أو زود سنة من قايمة السنة. السنين اللي فيها بيانات بتفضل ظاهرة دايمًا</small></label>
    <label>رصيد الراتب في البداية<input type="number" step="any" data-act="opening" data-f="salary" data-k="s-os" value="${+s.opening.salary||''}" placeholder="0"><small>الفلوس اللي كانت معاك من الراتب أول ما بدأت</small></label>
    <label>رصيد العمل الحر في البداية<input type="number" step="any" data-act="opening" data-f="free" data-k="s-of" value="${+s.opening.free||''}" placeholder="0"></label>
   </div></div>
@@ -989,10 +1027,10 @@ function render(){
   MEMO={}; Y();
   document.documentElement.dataset.theme=st().theme||'dark';
   const P=[['dash','لوحة التحكم','الرئيسية','M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'],['salary','الراتب','الراتب','M3 7h18v13H3zM3 7l13-4M16 13.5h5'],['free','العمل الحر','العمل الحر','M3 8h18v12H3zM9 8V5h6v3M3 13h18'],['clients','العملاء','العملاء','M9 11a3.2 3.2 0 1 0 0-6.4A3.2 3.2 0 0 0 9 11zM2.5 20c.6-3.4 3.3-5.5 6.5-5.5s5.9 2.1 6.5 5.5M16.5 11a2.6 2.6 0 1 0 0-5.2M18 14.8c2 .6 3.3 2.4 3.6 5.2'],['goals','خطة الاستثمار','الاستثمار','M4 20V11M10 20V5M16 20v-7M2 20h20'],['settings','الإعدادات','الإعدادات','M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zM12 2.5v3M12 18.5v3M3.8 7l2.6 1.5M17.6 15.5l2.6 1.5M3.8 17l2.6-1.5M17.6 8.5l2.6-1.5']];
-  const yrs=new Set(Object.keys(S.years).map(Number));[NY-1,NY,NY+1,S.year].forEach(v=>yrs.add(v));
+  const yrs=yearList();
   document.getElementById('side').innerHTML=`<div class="logo"><svg width="58" height="58" viewBox="0 0 64 64" aria-hidden="true" style="flex:none;filter:drop-shadow(0 8px 18px rgba(0,0,0,.45))"><defs><linearGradient id="lbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F6B57"/><stop offset=".5" stop-color="#0D1A33"/><stop offset="1" stop-color="#4E32A6"/></linearGradient><linearGradient id="lgd" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="64" y2="64"><stop offset="0" stop-color="#FFF1CC"/><stop offset=".45" stop-color="#E2BC72"/><stop offset="1" stop-color="#A87A25"/></linearGradient></defs><rect x="1.5" y="1.5" width="61" height="61" rx="18" fill="url(#lbg)"/><rect x="1.5" y="1.5" width="61" height="61" rx="18" fill="none" stroke="url(#lgd)" stroke-width="1.4" opacity=".9"/><g stroke="url(#lgd)" stroke-linecap="round" fill="none"><path d="M32 16v27" stroke-width="3.2"/><path d="M13 23.5h38" stroke-width="3.2"/><path d="M13 23.5 8.5 36M13 23.5 17.5 36M51 23.5 46.5 36M51 23.5 55.5 36" stroke-width="1.3"/></g><path d="M23 50.5h18l-9-7.5z" fill="url(#lgd)"/><circle cx="32" cy="14.5" r="3.6" fill="url(#lgd)"/><path d="M7 36h12a6 5.2 0 0 1-12 0z" fill="#3CCAA0"/><path d="M45 36h12a6 5.2 0 0 1-12 0z" fill="#A98CF6"/><path d="M7 36h12M45 36h12" stroke="url(#lgd)" stroke-width="1.3" stroke-linecap="round"/></svg><div><div class="word">ميزان</div><small>كل جنيه في مكانه</small></div></div>
    <nav class="nav" aria-label="الأقسام">${P.map(([k,n,sh,d])=>`<button class="${ui.page===k?'on':''}" data-click="page" data-p="${k}" aria-current="${ui.page===k?'page':'false'}"><svg class="ni" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg><span class="nl">${n}</span><span class="ns">${sh}</span></button>`).join('')}</nav>
-   <div class="side-foot">${syncBadge()}<button class="btn sm gold" data-click="report">تقرير الشهر</button><label for="yr">السنة</label><select id="yr" data-act="year" data-k="year">${[...yrs].sort().map(v=>`<option ${v===S.year?'selected':''}>${v}</option>`).join('')}</select>
+   <div class="side-foot">${syncBadge()}<button class="btn sm gold" data-click="report">تقرير الشهر</button><label for="yr">السنة</label><select id="yr" data-act="year" data-k="year">${yrs.map(v=>`<option value="${v}" ${v===S.year?'selected':''}>${v}</option>`).join('')}<option value="add">+ أضف سنة جديدة</option></select>
    <button class="btn sm" data-click="theme">${st().theme==='light'?'الوضع الليلي':'الوضع النهاري'}</button></div>`;
   const V={dash:pDash,salary:pSalary,free:pFree,clients:pClients,goals:pGoals,settings:pSettings};
   document.getElementById('view').innerHTML=V[ui.page]();
@@ -1007,7 +1045,7 @@ document.addEventListener('change',e=>{
   const y=Y(),v=t.value,n=parseFloat(v)||0,d=t.dataset,m=ui.m;
   const P=()=>y.projects.find(x=>x.id===(d.pid||d.id));
   switch(a){
-    case 'year': S.year=+v; break;
+    case 'year': if(v==='add'){const nx=Math.max(...yearList())+1; S.settings.yearTo=nx; S.year=nx; Y(); toast('اتضافت سنة '+nx);} else S.year=+v; break;
     case 'salinc': y.salInc[m]=v===''?null:n; break;
     case 'base': {if(!y.vals[d.id]) y.vals[d.id]=N12(); y.vals[d.id][m]=v===''?null:n; break;}
     case 'qa-cat': ui.qa[d.axis]=v; return;
