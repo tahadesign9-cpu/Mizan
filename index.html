@@ -42,7 +42,7 @@
   --shadow:0 22px 44px -30px rgba(16,26,46,.45);
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink)}
+html{background:var(--bg)}html,body{margin:0;color:var(--ink)}body{background:transparent}
 body{font-family:var(--body);font-size:15px;line-height:1.65;font-variant-numeric:tabular-nums;min-height:100vh}
 button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
@@ -82,7 +82,7 @@ main{padding:30px 34px 70px;min-width:0}
 .btn.x{border-color:transparent;background:transparent;color:var(--muted);padding:4px 8px}
 .btn.x:hover{color:var(--neg)}
 .btn.block{width:100%}
-select,input[type=text],input[type=number]{background:var(--card2);border:1px solid var(--line);border-radius:var(--r3);padding:8px 10px;min-width:0}
+select,input[type=text],input[type=number],input[type=password]{background:var(--card2);border:1px solid var(--line);border-radius:var(--r3);padding:8px 10px;min-width:0}
 input[type=number]{text-align:center}
 input:hover,select:hover{border-color:var(--muted)}
 
@@ -183,7 +183,13 @@ input:hover,select:hover{border-color:var(--muted)}
 .inv{border:1px solid rgba(216,178,106,.45);background:linear-gradient(180deg,rgba(216,178,106,.10),rgba(216,178,106,.02));border-radius:var(--r2);padding:20px 22px;margin-bottom:20px}
 .inv h2{font-family:var(--display);font-size:19px;margin:0 0 6px;color:var(--gold)}
 .alloc{display:flex;flex-direction:column;gap:8px;margin:14px 0}
-.al{display:grid;grid-template-columns:1fr auto;gap:2px 12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r3);padding:11px 14px}
+.al{--g:216,178,106;display:grid;grid-template-columns:1fr auto;gap:2px 12px;border-radius:14px;padding:12px 15px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(var(--g),.26) 0%,rgba(var(--g),.08) 55%,rgba(255,255,255,.03) 100%);
+  border:1px solid rgba(var(--g),.42);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 8px 22px -14px rgba(var(--g),.6);-webkit-backdrop-filter:blur(10px) saturate(140%);backdrop-filter:blur(10px) saturate(140%)}
+.al::after{content:"";position:absolute;inset:0 0 55% 0;background:linear-gradient(180deg,rgba(255,255,255,.10),transparent);pointer-events:none}
+.al>*{position:relative}.al b{color:rgb(var(--g))}
+.al.k-ef{--g:60,202,160}.al.k-cd{--g:99,179,237}.al.k-gold{--g:240,190,80}.al.k-eq{--g:169,140,246}
+[data-theme=light] .al.k-ef{--g:10,133,101}[data-theme=light] .al.k-cd{--g:30,110,190}[data-theme=light] .al.k-gold{--g:184,120,10}[data-theme=light] .al.k-eq{--g:102,67,206}
 .al b{font-family:var(--display);font-size:17px}
 .al small{grid-column:1/-1;color:var(--muted);font-size:12.5px}
 .note{font-size:12.5px;color:var(--muted);margin:12px 0 0}
@@ -388,6 +394,113 @@ input::placeholder{color:var(--muted);opacity:.8}
   .tier.cl{background:transparent;border:1px solid var(--cc)}
   .nav{background:var(--bg2)!important}
 }
+.live{position:relative;overflow:hidden;display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:center;margin-bottom:20px;padding:24px 26px;border-radius:var(--r1);border:1px solid rgba(140,190,255,.45);color:#EEF4FF;background:radial-gradient(110% 120% at 100% 0%,rgba(120,180,255,.30),transparent 55%),linear-gradient(140deg,#1D4FA3 0%,#123272 45%,#081634 100%);box-shadow:var(--shadow)}
+.live::before{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at -10% 120%,rgba(255,255,255,.05) 0 1px,transparent 1px 14px);pointer-events:none}.live>*{position:relative}
+.live .live-main span,.live .live-main>small{color:rgba(225,236,255,.78)!important}
+.live .live-main b{color:#FFFFFF!important;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.live .live-main b small{color:rgba(225,236,255,.7)!important}
+.live .live-parts div{background:rgba(255,255,255,.07)!important;border:1px solid rgba(160,200,255,.22)}
+.live .live-parts span{color:rgba(225,236,255,.75)!important}.live .live-parts b{color:#FFFFFF}
+.live-main span{font-size:14px;color:var(--muted);display:block}
+.live-main b{display:block;font-family:var(--display);font-size:44px;font-weight:800;color:var(--gold);line-height:1.2}
+.live-main b small{font-size:16px;color:var(--muted);font-weight:500}
+.live-main>small{font-size:12.5px;color:var(--muted)}
+.live-parts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.live-parts div{display:grid;grid-template-columns:auto 1fr;gap:0 8px;align-items:center;background:var(--card2);border-radius:var(--r3);padding:9px 12px}
+.live-parts i{width:9px;height:9px;border-radius:50%;grid-row:span 2}
+.live-parts span{font-size:12px;color:var(--muted)}.live-parts b{font-family:var(--display);font-size:16px}
+@media (max-width:800px){.live{grid-template-columns:1fr}.live-main b{font-size:36px}}
+
+/* ---------- glass system ---------- */
+.kpi,.sc,.pb,.gstat div,.cgrid div,.mkt div,.split div,.rec,.rlist div,.ccontrib div,.ffrow,.goal,.alert,.al,.live-parts div,.cc,.ccard{--g:150,170,215}
+.kpi,.sc:not(.hero),.pb,.gstat div,.mkt div,.split div,.rec,.rlist div,.ffrow,.goal,.alert{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(var(--g),.17) 0%,rgba(var(--g),.06) 55%,rgba(255,255,255,.02) 100%)!important;
+  border:1px solid rgba(var(--g),.32)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 10px 26px -18px rgba(var(--g),.55);
+  -webkit-backdrop-filter:blur(12px) saturate(140%);backdrop-filter:blur(12px) saturate(140%)}
+.kpi::after,.sc:not(.hero)::after,.pb::after,.mkt div::after,.goal::after,.rec::after{content:"";position:absolute;inset:0 0 60% 0;background:linear-gradient(180deg,rgba(255,255,255,.08),transparent);pointer-events:none}
+.kpi>*,.sc>*,.pb>*,.mkt div>*,.goal>*,.rec>*{position:relative}
+.cgrid div{background:linear-gradient(135deg,color-mix(in srgb,var(--cc) 22%,transparent),color-mix(in srgb,var(--cc) 6%,transparent))!important;border:1px solid color-mix(in srgb,var(--cc) 30%,transparent);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.panel{background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.012)),var(--card);border-color:rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+[data-theme=light] .panel{background:var(--card);border-color:var(--line)}
+/* color per box */
+.kpis .kpi:nth-child(1){--g:60,202,160}.kpis .kpi:nth-child(2){--g:99,179,237}.kpis .kpi:nth-child(3){--g:216,178,106}.kpis .kpi:nth-child(4){--g:169,140,246}
+.sumcards .sc:nth-child(2){--g:60,202,160}.sumcards .sc:nth-child(3){--g:255,124,124}.sumcards .sc:nth-child(4){--g:242,179,90}.sumcards .sc:nth-child(5){--g:99,179,237}
+.pb.b0{--g:60,202,160}.pb.b1{--g:242,179,90}.pb.b2{--g:216,178,106}.pb.b3{--g:169,140,246}
+.goal.k-ef{--g:60,202,160}.goal.k-cd{--g:99,179,237}.goal.k-gold{--g:240,190,80}.goal.k-eq{--g:169,140,246}
+.goal.k-ef .gstat div{--g:60,202,160}.goal.k-cd .gstat div{--g:99,179,237}.goal.k-gold .gstat div{--g:240,190,80}.goal.k-eq .gstat div{--g:169,140,246}
+.mkt div{--g:99,179,237}.mkt div:nth-child(2),.mkt div:nth-child(3){--g:255,124,124}.mkt div:nth-child(4){--g:60,202,160}.mkt div:nth-child(5){--g:240,190,80}.mkt div:nth-child(7){--g:169,140,246}
+.split div:nth-child(2),.split div:nth-child(3){--g:255,124,124}.split div:nth-child(4){--g:216,178,106}.split div:nth-child(5){--g:60,202,160}
+.rec{--g:242,179,90}.ffrow{--g:169,140,246}.rlist div:nth-child(1){--g:60,202,160}.rlist div:nth-child(2){--g:242,179,90}.rlist div:nth-child(3){--g:216,178,106}
+.alert{--g:216,178,106}.alert.bad{--g:255,110,110}.alert.good{--g:70,211,156}
+/* title vs text contrast */
+.kpi span,.sc span,.mkt span,.gstat span,.split div>span,.cgrid span,.rlist div>span{color:var(--muted);font-weight:500;letter-spacing:.1px}
+.kpi b,.sc b,.mkt b,.gstat b,.split b,.cgrid b{color:var(--ink);font-weight:800}
+.kpi small,.sc small{color:var(--muted);opacity:.85}
+.pb>span:first-child{font-weight:700;font-size:15px;color:var(--ink)}
+.pb small{color:var(--muted)!important;opacity:.85}
+.al span{font-weight:700;color:var(--ink)}.al small{color:var(--muted)!important;opacity:.9}
+.goal-h b{font-size:24px!important;color:var(--ink)}.goal-h div>span{color:var(--muted)}
+.why{color:var(--ink);opacity:.86;font-size:13.5px}.prod{color:var(--muted)!important;font-size:12.5px!important}
+.goal .prod b{color:rgb(var(--g))}
+/* ---------- privacy lock ---------- */
+.locked b,.locked .amt,.locked .val,.locked .cc b,.locked .after,.locked td.n,.locked input[type=number],.locked .wc-amt,.locked .chartwrap,.locked .legend,.locked svg text,.locked .mo small,.locked .alert,.locked .why,.locked .steps,.locked .note,.locked .hint,.locked .wc-warn,.locked .wc-note,.locked .rec small,.locked .pc-h .sub,.locked .led small,.locked .goal-h span,.locked .ccard .big,.locked .bud,.locked .share,.locked .tr,.locked .eq,.locked .warn-line,.locked .line .muted,.locked .split b,.locked .cgrid b,.locked .gstat b,.locked .kpi small,.locked .sc small,.locked .live-main>small,.locked .cc small{filter:blur(9px);user-select:none;pointer-events:none;transition:filter .25s}
+.locked .lockbar *,.locked .lockbar b{filter:none!important;pointer-events:auto!important}
+.locked h1,.locked h2,.locked .nm b,.locked .phead b,.locked b.cname{filter:none!important;pointer-events:auto}
+.lockbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:-6px 0 18px;padding:12px 14px;border-radius:14px;border:1px solid rgba(99,179,237,.4);background:linear-gradient(135deg,rgba(99,179,237,.18),rgba(99,179,237,.05));-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.lockbar b{font-size:14px}.lockbar input{width:130px;letter-spacing:6px;text-align:center}
+
+
+/* ===== full-app glass ===== */
+:root{--gl:rgba(22,34,62,.52);--gl2:rgba(255,255,255,.055);--glb:rgba(255,255,255,.12);--glh:inset 0 1px 0 rgba(255,255,255,.10);--blur:blur(16px) saturate(150%)}
+[data-theme=light]{--gl:rgba(255,255,255,.62);--gl2:rgba(255,255,255,.55);--glb:rgba(16,26,46,.10);--glh:inset 0 1px 0 rgba(255,255,255,.9)}
+body::before{content:"";position:fixed;inset:-10%;z-index:-1;pointer-events:none;background:
+ radial-gradient(40% 35% at 85% 5%,rgba(60,202,160,.20),transparent 70%),
+ radial-gradient(38% 34% at 5% 35%,rgba(169,140,246,.20),transparent 70%),
+ radial-gradient(40% 35% at 70% 95%,rgba(99,179,237,.16),transparent 70%),
+ radial-gradient(30% 25% at 30% 75%,rgba(216,178,106,.10),transparent 70%)}
+[data-theme=light] body::before{opacity:.7}
+.panel,.side,.pcard,.ccard,.inv,.mbox,.mo,.goal,.tbl,.months .mo{-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur)}
+.panel,.side,.pcard:not(.tint),.mbox,.mo{background:linear-gradient(150deg,var(--gl2),rgba(255,255,255,.015)),var(--gl)!important;border-color:var(--glb)!important;box-shadow:var(--glh),0 18px 40px -28px rgba(0,0,0,.7)}
+.side{border-left:1px solid var(--glb)!important}
+.mo.on{background:linear-gradient(180deg,rgba(216,178,106,.28),rgba(216,178,106,.06)),var(--gl)!important;border-color:rgba(216,178,106,.7)!important}
+.inv{background:linear-gradient(150deg,rgba(216,178,106,.16),rgba(216,178,106,.03)),var(--gl)!important;box-shadow:var(--glh),0 18px 40px -28px rgba(0,0,0,.7)}
+.mbox{background:linear-gradient(150deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),rgba(18,28,52,.82)!important}
+[data-theme=light] .mbox{background:rgba(255,255,255,.88)!important}
+/* the three main cards */
+.wcard,.live{-webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%);border:1px solid rgba(255,255,255,.18)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(0,0,0,.2),0 24px 50px -30px rgba(0,0,0,.85)!important}
+.wcard.salary{background:radial-gradient(120% 90% at 0% 0%,rgba(240,216,162,.16),transparent 55%),linear-gradient(140deg,rgba(18,120,98,.78) 0%,rgba(11,70,60,.62) 55%,rgba(7,33,30,.55) 100%)!important}
+.wcard.free{background:radial-gradient(120% 90% at 0% 0%,rgba(240,216,162,.16),transparent 55%),linear-gradient(140deg,rgba(90,58,180,.78) 0%,rgba(48,30,112,.62) 55%,rgba(21,13,53,.55) 100%)!important}
+.live{background:radial-gradient(110% 120% at 100% 0%,rgba(120,180,255,.30),transparent 55%),linear-gradient(140deg,rgba(32,86,176,.80) 0%,rgba(18,50,114,.62) 45%,rgba(8,22,52,.55) 100%)!important}
+.wcard::after,.live::after{content:"";position:absolute;inset:0 0 62% 0;background:linear-gradient(180deg,rgba(255,255,255,.12),transparent);pointer-events:none;border-radius:inherit}
+/* controls */
+select,input[type=text],input[type=number],input[type=password]{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025))!important;border-color:var(--glb)!important;box-shadow:var(--glh)}
+[data-theme=light] select,[data-theme=light] input[type=text],[data-theme=light] input[type=number],[data-theme=light] input[type=password]{background:rgba(255,255,255,.7)!important}
+.wc-input input{background:rgba(0,0,0,.18)!important;border-color:rgba(240,216,162,.45)!important}
+.led input.auto{border-color:rgba(216,178,106,.55)!important}
+.btn:not(.gold):not(.x){background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.03))!important;border-color:var(--glb)!important;box-shadow:var(--glh);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.btn.gold{background:linear-gradient(180deg,#F2D293 0%,#D8B26A 55%,#C29A4E 100%)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 8px 20px -10px rgba(216,178,106,.7)}
+.seg,.status,.srcseg button{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02))!important;border-color:var(--glb)!important}
+.seg button,.status button{background:transparent}
+.seg button.on{background:linear-gradient(180deg,#F2D293,#C29A4E)!important}
+.tag{box-shadow:inset 0 1px 0 rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.06)}
+/* rows, tables, ledger */
+.led tr.edge td,.led tr.carry td{background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.02))!important}
+@media (max-width:600px){.led tr.edge,.led tr.carry{background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02))!important;border:1px solid var(--glb)!important;box-shadow:var(--glh)}}
+.tbl{border-radius:12px}.tbl tr.click:hover td,.tbl tr.sel td{background:rgba(216,178,106,.10)!important}
+.empty{background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.01));border-color:var(--glb)!important}
+.pc-b{background:transparent!important}
+.pcard:not(.tint) .pc-h{background:linear-gradient(135deg,rgba(255,255,255,.06),transparent)}
+.nav button.on{background:linear-gradient(135deg,rgba(216,178,106,.16),rgba(216,178,106,.04))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+@media (max-width:960px){.nav{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02)),var(--gl)!important;-webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%);border-top:1px solid var(--glb)!important}.nav button.on{background:transparent!important;box-shadow:none}}
+.toast{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);background:linear-gradient(180deg,rgba(242,210,147,.95),rgba(194,154,78,.92))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 10px 24px -12px rgba(0,0,0,.6)}
+.logo svg{border-radius:18px}
+@media (max-width:960px){.side{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23D8B26A' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E"),linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025))!important;background-repeat:no-repeat,no-repeat!important;background-position:left 12px center,0 0!important;background-size:12px 8px,100% 100%!important}
+[data-theme=light] select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%239A6F1E' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E"),linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7))!important}
+.modal{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.mkt-req,.onb{-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);box-shadow:var(--glh)}
 @media (display-mode: standalone){body{padding-top:env(safe-area-inset-top)}.side{padding-top:calc(14px + env(safe-area-inset-top))}}
 html{-webkit-text-size-adjust:100%}body{overscroll-behavior-y:none}
 .toast{position:fixed;bottom:20px;left:20px;background:var(--gold);color:#1A1405;padding:9px 16px;border-radius:var(--r3);font-weight:700;font-size:13.5px;opacity:0;transform:translateY(8px);transition:.2s;pointer-events:none;z-index:9}
@@ -448,7 +561,7 @@ const pc=(a,b)=>b>0?a/b*100:0;
 /* ---------- state ---------- */
 function cat(name,kind,fixed=0){return {id:uid(),name,kind,fixed,budget:0,endY:0,endM:11};}
 function defState(){return {v:2,year:NY,
-  cats:{salary:[cat('السكن والإيجار','need'),cat('الأكل والبقالة','need'),cat('المواصلات والبنزين','need'),cat('الكهرباء والمياه والغاز','need'),cat('الإنترنت والموبايل','need'),cat('قسط العربية','need'),cat('الصحة والعلاج','need'),cat('الترفيه والخروج','want'),cat('اللبس والمشتريات','want'),cat('مصاريف متنوعة','want')],
+  cats:{salary:[cat('السكن والإيجار','need'),cat('الأكل والبقالة','need'),cat('فراخ','need'),cat('لحمة','need'),cat('خضار','need'),cat('فاكهة','need'),cat('جمعية','need'),cat('المواصلات والبنزين','need'),cat('الكهرباء والمياه والغاز','need'),cat('الإنترنت والموبايل','need'),cat('قسط العربية','need'),cat('الصحة والعلاج','need'),cat('الترفيه والخروج','want'),cat('اللبس والمشتريات','want'),cat('مصاريف متنوعة','want')],
         free:[cat('اشتراكات وأدوات الشغل','need'),cat('إعلانات وتسويق لنفسك','want'),cat('مصاريف شغل أخرى','need')]},
   goals:[{id:'ef',name:'صندوق الطوارئ',kind:'ef',target:0,start:0},{id:uid(),name:'شهادات وودائع',kind:'cd',target:0,start:0},{id:uid(),name:'ذهب',kind:'gold',target:0,start:0},{id:uid(),name:'صناديق البورصة',kind:'eq',target:0,start:0}],
   years:{},
@@ -473,7 +586,10 @@ function migrate(){
 function load(){try{const d=JSON.parse(localStorage.getItem(KEY)); if(d&&d.v===2) return d;}catch(e){} return migrate()||defState();}
 let S=load();
 function normalize(){
+  if(!S.fix5){if(!S.settings.yearFrom||+S.settings.yearFrom<2026) S.settings.yearFrom=2026; if(S.year<2026&&!yearHasData(S.years[S.year])) S.year=2026; S.fix5=true;}
   if(S.settings.taxPct==null) S.settings.taxPct=10; S.taxPaid=S.taxPaid||[];
+  if(!S.fix4){const nm=x=>x.replace(/[ةه]$/,'ه').replace(/^ال/,'').trim(); const have=S.cats.salary.map(c=>nm(c.name));
+    ['فراخ','لحمة','خضار','فاكهة','جمعية'].forEach(n=>{if(!have.includes(nm(n))&&!(n==='خضار'&&have.includes('خضر'))) S.cats.salary.push(cat(n,'need'));}); S.fix4=true;}
   const ren={'الفواتير (كهرباء، مياه، غاز، نت)':'الكهرباء والمياه والغاز والنت'};
   ['salary','free'].forEach(ax=>S.cats[ax].forEach(c=>{if(ren[c.name]) c.name=ren[c.name]; c.name=c.name.replace(/[()]/g,'').trim();}));
   if(!S.fix3){const wants=['الترفيه','الترفيه والخروج','اللبس والمشتريات','مصاريف متنوعة','إعلانات وتسويق لنفسك'];
@@ -485,7 +601,8 @@ function normalize(){
 }
 normalize();
 let ui={page:'dash',m:(S.year===NY?NM:0),open:{},pf:'month',qa:{salary:'',free:''}};
-function yearList(){const st_=S.settings,data=Object.keys(S.years).map(Number);const from=Math.min(+st_.yearFrom||NY-1,...data,S.year),to=Math.max(+st_.yearTo||2030,...data,S.year);const a=[];for(let v=from;v<=to;v++)a.push(v);return a;}
+function yearHasData(y){return !!(y&&(y.projects.length||y.records.length||y.transfers.length||(y.moves||[]).length||y.salInc.some(v=>v!=null)||Object.values(y.vals).some(a=>a.some(v=>v!=null))));}
+function yearList(){const st_=S.settings,data=Object.keys(S.years).map(Number).filter(k=>yearHasData(S.years[k]));const from=Math.min(+st_.yearFrom||2026,...data,S.year),to=Math.max(+st_.yearTo||2030,...data,S.year);const a=[];for(let v=from;v<=to;v++)a.push(v);return a;}
 function Y(yr=S.year){if(!S.years[yr]) S.years[yr]=defYear(); return S.years[yr];}
 function save(msg){S.updatedAt=Date.now();try{localStorage.setItem(KEY,JSON.stringify(S)); toast(msg||'اتحفظ');}catch(e){toast('الحفظ فشل، مساحة المتصفح ممتلئة');} schedulePush();}
 let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1500);}
@@ -497,6 +614,7 @@ const future=(yr,m)=>yr>NY||(yr===NY&&m>NM);
 function fixedFor(c,yr,m){if(!+c.fixed) return 0; if(+c.endY&&(yr>+c.endY||(yr===+c.endY&&m>+c.endM))) return 0; return +c.fixed;}
 function baseOf(c,yr,m){const y=S.years[yr]; const o=y&&y.vals[c.id]?y.vals[c.id][m]:null; if(o!=null) return {v:+o,auto:false}; return {v:active(yr,m)?fixedFor(c,yr,m):0,auto:true};}
 function recOf(yr,ax,cid,m){const y=S.years[yr]; return y?sum(y.records.filter(r=>r.axis===ax&&r.cat===cid&&r.m===m).map(r=>r.amt)):0;}
+function srcOf(c,yr,m){const y=S.years[yr];const o=y&&y.srcM&&y.srcM[c.id]?y.srcM[c.id][m]:null;return o||(c.src==='free'?'free':'salary');}
 function isHidden(c,yr,m){const y=S.years[yr];return !!(y&&y.hide&&(y.hide[c.id]||[]).includes(m));}
 function catTotal(c,ax,yr,m){if(isHidden(c,yr,m)) return 0; return baseOf(c,yr,m).v+recOf(yr,ax,c.id,m);}
 function salOf(yr,m){const y=S.years[yr]; const o=y?y.salInc[m]:null; if(o!=null) return {v:+o,auto:false}; return {v:active(yr,m)?(+st().defaultSalary||0):0,auto:true};}
@@ -512,20 +630,20 @@ function calc(yr,ax){
   const income=Z(),exp=Z(),tr=Z(),gross=Z(),team=Z(),cost=Z();
   for(let m=0;m<12;m++){
     if(ax==='salary') income[m]=salOf(yr,m).v;
-    S.cats[ax].forEach(c=>{if(ax==='salary'&&c.src==='free') return; exp[m]+=catTotal(c,ax,yr,m);});
-    if(ax==='free') S.cats.salary.forEach(c=>{if(c.src==='free') exp[m]+=catTotal(c,'salary',yr,m);});
+    S.cats[ax].forEach(c=>{if(ax==='salary'&&srcOf(c,yr,m)==='free') return; exp[m]+=catTotal(c,ax,yr,m);});
+    if(ax==='free') S.cats.salary.forEach(c=>{if(srcOf(c,yr,m)==='free') exp[m]+=catTotal(c,'salary',yr,m);});
   }
   if(ax==='free') y.projects.forEach(p=>{const s=split(p); payList(p).forEach(q=>{const f=s.a>0?(+q.amt||0)/s.a:0; gross[q.m]+=+q.amt||0; team[q.m]+=s.team*f; cost[q.m]+=s.c*f; income[q.m]+=s.net*f;});});
   y.transfers.filter(t=>t.axis===ax).forEach(t=>tr[t.m]+=+t.amt||0);
   (y.moves||[]).forEach(v=>{if(ax==='salary') income[v.m]+=+v.amt||0; else exp[v.m]+=+v.amt||0;});
   const tax=Z(); if(ax==='free'){const tp=(+st().taxPct||0)/100; for(let m=0;m<12;m++){tax[m]=income[m]>0?income[m]*tp:0; exp[m]+=tax[m];}}
-  const fy=firstYear(), op=yr===fy?(+st().opening[ax]||0):yr>fy?calc(yr-1,ax).out[11]:0;
+  const fy=firstYear(), op=yr>fy?calc(yr-1,ax).out[11]:0;
   const before=Z(),surplus=Z(),cin=Z(),out=Z();
   for(let m=0;m<12;m++){before[m]=income[m]-exp[m];surplus[m]=before[m]-tr[m];cin[m]=m?out[m-1]:op;out[m]=cin[m]+surplus[m];}
   return MEMO[k]={income,exp,tr,before,surplus,cin,out,gross,team,cost,op,tax};
 }
 function goalBal(g){let b=+g.start||0; Object.values(S.years).forEach(y=>y.transfers.forEach(t=>{if(t.goal===g.id) b+=+t.amt||0;})); return b;}
-function avgLiving(){const c=calc(S.year,'salary'); const xs=c.exp.filter((v,m)=>v>0&&active(S.year,m)); return xs.length?sum(xs)/xs.length:sum(S.cats.salary.map(x=>+x.fixed||0));}
+function avgLiving(){const c=calc(S.year,'salary'); const xs=c.exp.filter((v,m)=>v>0&&!future(S.year,m)); return xs.length?sum(xs)/xs.length:sum(S.cats.salary.map(x=>+x.fixed||0));}
 function goalTarget(g){return +g.target>0?+g.target:(g.kind==='ef'?(+st().efMonths||0)*avgLiving():0);}
 function receivables(yr){return sum((S.years[yr]||defYear()).projects.map(p=>{const s=split(p);return Math.max(0,s.a-s.got);}));}
 function clientStats(yr){
@@ -570,7 +688,7 @@ function freeRisk(m){
 const DEBT=/قسط|دين|قرض|سلفة|أقساط/;
 function salaryPlan(m){
   const c=calc(S.year,'salary'),inc=c.income[m]; if(!inc) return null;
-  let need=0,want=0,debt=0; S.cats.salary.forEach(k=>{if(k.src==='free') return; const t=catTotal(k,'salary',S.year,m); if(DEBT.test(k.name)) debt+=t; k.kind==='need'?need+=t:want+=t;});
+  let need=0,want=0,debt=0; S.cats.salary.forEach(k=>{if(srcOf(k,S.year,m)==='free') return; const t=catTotal(k,'salary',S.year,m); if(DEBT.test(k.name)) debt+=t; k.kind==='need'?need+=t:want+=t;});
   const ef=S.goals.find(g=>g.kind==='ef'),avg=avgLiving()||need+want,efM=avg?goalBal(ef)/avg:0,np=need/inc*100,left=inc-need-want;
   const P=x=>Math.round(inc*x/100);
   let t,who,why,b,steps;
@@ -599,6 +717,7 @@ function salaryPlan(m){
   return {t,who,why,b,steps};
 }
 /* ---------- visuals/* ---------- visuals ---------- */
+function rv(html){const cs=getComputedStyle(document.documentElement);return html.replace(/(fill|stroke)="var\((--[\w-]+)\)"/g,(m0,a,v)=>`${a}="${cs.getPropertyValue(v).trim()||'#888'}"`);}
 function bars(series,h=240){
   const W=780,H=h,pl=60,pr=12,pt=14,pb=30,max=Math.max(1,...series.flatMap(s=>s.values));
   const step=(W-pl-pr)/12,bw=Math.min(16,(step-12)/series.length);let g='';
@@ -607,24 +726,24 @@ function bars(series,h=240){
     series.forEach((s,j)=>{const v=Math.max(0,s.values[i]),bh=(H-pb-pt)*v/max,x=cx-series.length*bw/2+j*bw;
       g+=`<rect x="${x}" y="${H-pb-bh}" width="${bw-3}" height="${bh}" rx="4" fill="${s.color}" opacity="${future(S.year,i)?.45:1}"><title>${mn}، ${s.name}: ${fmt(v)}</title></rect>`;});
     g+=`<text x="${cx}" y="${H-9}" font-size="11" text-anchor="middle" fill="${i===ui.m?'var(--gold)':'var(--muted)'}">${mn}</text>`;});
-  return `<div class="chartwrap"><svg viewBox="0 0 ${W} ${H}" width="100%" role="img">${g}</svg></div><div class="legend">${series.map(s=>`<span><i style="background:${s.color}"></i>${s.name}</span>`).join('')}<span>الأعمدة الباهتة شهور متوقعة</span></div>`;
+  return `<div class="chartwrap"><svg viewBox="0 0 ${W} ${H}" width="100%" role="img">${rv(g)}</svg></div><div class="legend">${series.map(s=>`<span><i style="background:${s.color}"></i>${s.name}</span>`).join('')}${S.year>=NY?'<span>الأعمدة الباهتة شهور لسه ما جاتش</span>':''}</div>`;
 }
 function donut(items,label){
   const tot=sum(items.map(i=>i.v)); if(tot<=0) return `<div class="empty">مفيش أرقام للعرض لسه</div>`;
   const R=72,C=2*Math.PI*R,cols=['var(--gold)','var(--sal)','var(--fr)','#E07A9B','#5EA8F2','#C9CED9','#8E7A55','#4E8F7E'];let off=0,g='';
   items.forEach((it,i)=>{const L=C*it.v/tot;g+=`<circle r="${R}" cx="100" cy="100" fill="none" stroke="${it.c||cols[i%cols.length]}" stroke-width="24" stroke-dasharray="${Math.max(0,L-2)} ${C-L+2}" stroke-dashoffset="${-off}" transform="rotate(-90 100 100)"><title>${esc(it.name)}: ${pc(it.v,tot).toFixed(1)}%</title></circle>`;off+=L;});
-  return `<div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap"><svg viewBox="0 0 200 200" width="180">${g}<text x="100" y="95" text-anchor="middle" font-size="12" fill="var(--muted)">${label}</text><text x="100" y="118" text-anchor="middle" font-size="19" font-weight="700" fill="var(--ink)">${fmt(tot)}</text></svg>
+  return `<div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap"><svg viewBox="0 0 200 200" width="180">${rv(g+`<text x="100" y="95" text-anchor="middle" font-size="12" fill="var(--muted)">${label}</text><text x="100" y="118" text-anchor="middle" font-size="19" font-weight="700" fill="var(--ink)">${fmt(tot)}</text>`)}</svg>
   <div class="legend" style="flex-direction:column;gap:7px;margin:0">${items.map((it,i)=>`<span><i style="background:${it.c||cols[i%cols.length]}"></i>${esc(it.name)}، ${pc(it.v,tot).toFixed(1)}%</span>`).join('')}</div></div>`;
 }
 function ring(p,color,size=64){const r=size/2-6,C=2*Math.PI*r,L=C*Math.min(100,Math.max(0,p))/100;
-  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="var(--line)" stroke-width="6"/><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${color}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${L} ${C}" transform="rotate(-90 ${size/2} ${size/2})"/><text x="50%" y="54%" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">${Math.round(p)}%</text></svg>`;}
+  return rv(`<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="var(--line)" stroke-width="6"/><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${color}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${L} ${C}" transform="rotate(-90 ${size/2} ${size/2})"/><text x="50%" y="54%" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">${Math.round(p)}%</text></svg>`);}
 
 /* ---------- pieces ---------- */
 function monthStrip(ax){
   const c=ax?calc(S.year,ax):(()=>{const a=calc(S.year,'salary'),b=calc(S.year,'free');return {surplus:a.surplus.map((v,i)=>v+b.surplus[i])};})();
   return `<div class="months">${MONTHS.map((n,i)=>`<button class="mo ${i===ui.m?'on':''} ${future(S.year,i)?'fut':''}" data-click="month" data-m="${i}" aria-pressed="${i===ui.m}" title="فائض الشهر ده لوحده"><span>${n}</span><small class="${c.surplus[i]<0?'neg':''}">${fmt(c.surplus[i])}</small></button>`).join('')}</div>`;
 }
-function head(t,p,ax){return `<div class="phead"><div><h1>${t}</h1><p>${p}</p></div></div>${monthStrip(ax)}`;}
+function head(t,p,ax){return `<div class="phead"><div><h1>${t}</h1><p>${p}</p></div></div>${monthStrip(ax)}${lockBar()}`;}
 function walletCard(ax,editable){
   const m=ui.m,c=calc(S.year,ax),isS=ax==='salary',inc=c.income[m],used=c.exp[m]+c.tr[m],mine=c.surplus[m];
   const prog=inc>0?Math.min(100,used/inc*100):(used>0?100:0),leftPct=inc>0?(inc-c.exp[m])/inc*100:0;
@@ -638,7 +757,7 @@ function walletCard(ax,editable){
    ${salIn}<div class="wc-label">فائض ${MONTHS[m]} لوحده</div><div class="wc-amt ${mine<0?'neg':''}">${fmt(mine)}<small>ج.م</small></div>
    <div class="wc-bar ${warn?'warn':''}" title="اتصرف ${Math.round(prog)}%"><i style="width:${prog}%"></i></div>
    ${warn&&wtext?`<div class="wc-warn">${wtext}</div>`:''}
-   <div class="wc-row"><div><span>${isS?'الراتب':'صافي المحصّل'}</span><b>${fmt(inc)}</b></div><div><span>المصاريف</span><b>${fmt(c.exp[m])}</b></div><div><span>للأهداف</span><b>${fmt(c.tr[m])}</b></div><div><span>مرحّل من قبل</span><b>${fmt(c.cin[m])}</b></div></div>
+   <div class="wc-row"><div><span>${isS?'الراتب':'صافي المحصّل'}</span><b>${fmt(inc)}</b></div><div data-click="expd" data-axis="${ax}" role="button" style="cursor:pointer" title="اعرض تفاصيل المصاريف"><span>المصاريف ›</span><b>${fmt(c.exp[m])}</b></div><div><span>للأهداف</span><b>${fmt(c.tr[m])}</b></div><div><span>مرحّل من قبل</span><b>${fmt(c.cin[m])}</b></div></div>
    <div class="wc-total"><span>الإجمالي مع المرحّل</span><b class="${c.out[m]<0?'neg':''}">${fmt(c.out[m])} ج.م</b></div></div>`;
 }
 function deficitBox(){
@@ -646,7 +765,7 @@ function deficitBox(){
   return def?`<div class="alert bad" style="margin-bottom:20px">الراتب عليه عجز ${fmt(def)} ج.م في ${MONTHS[m]}، والمتاح في العمل الحر ${fmt(fc.out[m])} ج.م. <button class="btn sm gold" data-click="move-cover" style="margin-right:8px">غطّي العجز من العمل الحر</button></div>`:'';
 }
 function fromFreePanel(){
-  const m=ui.m,y=Y(),sc=calc(S.year,'salary'),fc=calc(S.year,'free'),items=S.cats.salary.filter(k=>k.src==='free'&&!isHidden(k,S.year,m)),mv=(y.moves||[]).filter(v=>v.m===m);
+  const m=ui.m,y=Y(),sc=calc(S.year,'salary'),fc=calc(S.year,'free'),items=S.cats.salary.filter(k=>srcOf(k,S.year,m)==='free'&&!isHidden(k,S.year,m)),mv=(y.moves||[]).filter(v=>v.m===m);
   const def=sc.surplus[m]<0?-sc.surplus[m]:0;
   return `<div class="panel" style="border-color:rgba(169,140,246,.45)"><h2>بنود بتتخصم من العمل الحر</h2>
    <p class="hint">مصاريف حياة بتدفعها من فلوس الشغل الحر مش من الراتب، وبتتخصم من فائض ${MONTHS[m]}. الفائض المتاح في العمل الحر دلوقتي <b class="amt" style="color:var(--fr)">${fmt(fc.out[m])}</b> ج.م.</p>
@@ -661,7 +780,7 @@ function fromFreePanel(){
    ${!items.length&&!mv.length?'<p class="muted" style="margin:0;font-size:13px">ممكن كمان تحوّل أي بند من جدول الراتب بزرار «اسحبه من العمل الحر».</p>':''}</div>`;
 }
 function quickAdd(ax){
-  const cs=S.cats[ax].filter(c=>ax!=='salary'||c.src!=='free');
+  const cs=S.cats[ax];
   return `<div class="qa"><input type="text" class="qname" list="cl-${ax}" placeholder="اكتب اسم البند أو اختار من القايمة" data-k="qac-${ax}" data-enter="qa-add" data-axis="${ax}" aria-label="البند">
    <datalist id="cl-${ax}">${cs.map(c=>`<option value="${esc(c.name)}">`).join('')}</datalist>
    <input type="number" inputmode="decimal" min="0" step="any" placeholder="المبلغ" data-k="qaa-${ax}" data-enter="qa-add" data-axis="${ax}" aria-label="المبلغ">
@@ -677,23 +796,23 @@ function ledger(ax){
   else{const fs=freeSum(m);bal=fs.net;
     rows+=`<tr class="edge"><td class="nm" style="color:var(--gold)">+ الفائض النهائي من كل العملاء<small>${fs.n} ${fs.n===1?'عميل':'عملاء'}، بعد رواتب التيم ${fmt(fs.team)} والتكاليف ${fmt(fs.cost)}</small></td><td class="amt" style="color:var(--gold)">${fmt(fs.net)}</td><td class="after">${cur(bal)}${trk(bal)}</td></tr>`;
     if(c.tax[m]){bal-=c.tax[m];rows+=`<tr><td class="nm" style="color:var(--warn)">← احتياطي الضرايب ${+st().taxPct}%<small>بيروح لحصالة الضرايب لحد ما تدفعها</small></td><td class="amt" style="color:var(--warn)">${fmt(c.tax[m])}</td><td class="after">${cur(bal)}${trk(bal)}</td></tr>`;}}
-  const row=(k,axk)=>{const b=baseOf(k,yr,m),r=recOf(yr,axk,k.id,m),t=b.v+r,ded=!(ax==='salary'&&k.src==='free');if(ded) bal-=t;
+  const row=(k,axk)=>{const b=baseOf(k,yr,m),r=recOf(yr,axk,k.id,m),t=b.v+r,sf=axk==='salary'&&srcOf(k,yr,m)==='free',ded=!(ax==='salary'&&sf);if(ded) bal-=t;
     const bud=+k.budget,over=bud&&t>bud;
     return `<tr><td class="nm">${esc(k.name)}<span class="tag ${k.kind}">${k.kind==='need'?'احتياج':'رغبة'}</span>${over?'<span class="tag over">تخطى الميزانية</span>':''}${ax==='free'&&axk==='salary'?'<span class="tag" style="background:rgba(169,140,246,.18);color:var(--fr)">مصروف حياة</span>':''}
-      ${axk==='salary'?`<span class="srcseg" role="group" aria-label="بيتدفع من"><span class="muted">من</span><button class="${k.src!=='free'?'on s':''}" data-click="src" data-id="${k.id}" data-v="salary" aria-pressed="${k.src!=='free'}">الراتب</button><button class="${k.src==='free'?'on f':''}" data-click="src" data-id="${k.id}" data-v="free" aria-pressed="${k.src==='free'}">العمل الحر</button></span>`:''}
+      ${axk==='salary'?`<span class="srcseg" role="group" aria-label="بيتدفع من"><span class="muted">من</span><button class="${!sf?'on s':''}" data-click="src" data-id="${k.id}" data-v="salary" aria-pressed="${!sf}">الراتب</button><button class="${sf?'on f':''}" data-click="src" data-id="${k.id}" data-v="free" aria-pressed="${sf}">العمل الحر</button></span>`:''}
       <small>${r?`عليه ${fmt(r)} مصروفات مسجلة`:''}${r&&bud?'، ':''}${bud?`الميزانية ${fmt(bud)}`:''}</small>${bud?`<div class="bud ${over?'over':''}"><i style="width:${Math.min(100,pc(t,bud))}%"></i></div>`:''}</td>
       <td><input type="number" inputmode="decimal" min="0" step="any" class="${b.auto?'auto':''}" data-act="base" data-axis="${axk}" data-id="${k.id}" data-k="b-${k.id}" value="${b.v||''}" placeholder="0" aria-label="${esc(k.name)}"></td>
       <td class="after">${!ded?'<span style="font-size:12px;color:var(--fr)">بيتخصم من العمل الحر</span>':t?cur(bal)+trk(bal):'<span class="muted">0</span>'}</td><td><button class="btn x" data-click="hide" data-axis="${axk}" data-id="${k.id}" title="حذف من ${MONTHS[m]} بس" aria-label="حذف من الشهر ده">حذف</button></td></tr>`;};
   const showK=(k,axk)=>!isHidden(k,yr,m)&&!(k.adhoc&&!catTotal(k,axk,yr,m));
   S.cats[ax].forEach(k=>{if(showK(k,ax)) rows+=row(k,ax);});
-  if(ax==='free'){S.cats.salary.filter(k=>k.src==='free').forEach(k=>{if(showK(k,'salary')) rows+=row(k,'salary');});
+  if(ax==='free'){S.cats.salary.filter(k=>srcOf(k,yr,m)==='free').forEach(k=>{if(showK(k,'salary')) rows+=row(k,'salary');});
     if(mv){bal-=mv;rows+=`<tr><td class="nm" style="color:var(--sal)">← تحويل للراتب لتغطية العجز</td><td class="amt">${fmt(mv)}</td><td class="after">${cur(bal)}${trk(bal)}</td></tr>`;}}
   y.transfers.filter(t=>t.axis===ax&&t.m===m).forEach(t=>{const g=S.goals.find(x=>x.id===t.goal);bal-=t.amt;
     rows+=`<tr><td class="nm" style="color:var(--gold)">← تحويل إلى ${esc(g?g.name:'هدف محذوف')}</td><td class="amt" style="color:var(--gold)">${fmt(t.amt)}</td><td class="after">${cur(bal)}${trk(bal)}</td></tr>`;});
   rows+=`<tr class="edge"><td colspan="2">فائض ${MONTHS[m]} لوحده</td><td class="after">${cur(bal)}</td><td></td></tr>`;
   rows+=`<tr class="carry"><td colspan="2">مرحّل من الشهور اللي فاتت</td><td class="after">${cur(c.cin[m])}</td></tr>`;
   rows+=`<tr class="edge"><td colspan="2">الإجمالي المتاح آخر ${MONTHS[m]}</td><td class="after">${cur(c.out[m])}</td></tr>`;
-  const hid=[...S.cats[ax].map(k=>[k,ax]),...(ax==='free'?S.cats.salary.filter(k=>k.src==='free').map(k=>[k,'salary']):[])].filter(([k])=>isHidden(k,yr,m)&&!(ax==='salary'&&k.src==='free'));
+  const hid=[...S.cats[ax].map(k=>[k,ax]),...(ax==='free'?S.cats.salary.filter(k=>srcOf(k,yr,m)==='free').map(k=>[k,'salary']):[])].filter(([k])=>isHidden(k,yr,m)&&!(ax==='salary'&&srcOf(k,yr,m)==='free'));
   const hidH=hid.length?`<p class="muted" style="font-size:13px;margin:10px 0 0">محذوف من ${MONTHS[m]} بس: ${hid.map(([k,a])=>`${esc(k.name)} <button class="linkbtn" data-click="unhide" data-axis="${a}" data-id="${k.id}">رجّعه</button>`).join('، ')}</p>`:'';
   return `<div class="scroll"><table class="led ${ax}"><tbody>${rows}</tbody></table></div>${hidH}`;
 }
@@ -708,6 +827,74 @@ function taxPanel(){
    <div class="qa"><input type="number" inputmode="decimal" min="0" step="any" placeholder="مبلغ دفعته للضرايب" data-k="tax-amt" data-enter="tax-pay"><button class="btn" data-click="tax-pay">سجّل إنك دفعت</button></div>
    ${(S.taxPaid||[]).length?`<div class="recs">${S.taxPaid.slice().reverse().map(x=>`<div class="rec"><div>دفعة ضرايب<br><small>${MONTHS[x.m]} ${x.y}</small></div><b class="amt">${fmt(x.amt)}</b><button class="btn x" data-click="del-tax" data-id="${x.id}">حذف</button></div>`).join('')}</div>`:''}
    <p class="note">النسبة الفعلية بتعتمد على وضعك الضريبي ونوع تسجيلك، فالأفضل تراجعها مع محاسب.</p></div>`;
+}
+function expItems(ax,m){
+  const yr=S.year,out=[];
+  const add=(k,axk)=>{const b=baseOf(k,yr,m),r=(Y().records||[]).filter(x=>x.axis===axk&&x.cat===k.id&&x.m===m),t=isHidden(k,yr,m)?0:b.v+sum(r.map(x=>x.amt));if(t>0) out.push({k,axk,b,r,t});};
+  if(ax==='salary') S.cats.salary.forEach(k=>{if(srcOf(k,yr,m)!=='free') add(k,'salary');});
+  else{S.cats.free.forEach(k=>add(k,'free')); S.cats.salary.forEach(k=>{if(srcOf(k,yr,m)==='free') add(k,'salary');});}
+  return out.sort((a,b)=>b.t-a.t);
+}
+function oddAmounts(m){
+  const res=[];['salary','free'].forEach(ax=>expItems(ax,m).forEach(e=>{
+    if(e.b.v>0&&e.b.v<50&&!e.b.auto) res.push({e,amt:e.b.v,where:'رقم مكتوب في الخانة'});
+    e.r.forEach(x=>{if(x.amt<50) res.push({e,amt:x.amt,rec:x.id,where:'مصروف متسجل'});});}));
+  return res;
+}
+function oddBox(m){
+  const o=oddAmounts(m); if(!o.length) return '';
+  return `<div class="alert bad" style="margin-bottom:20px"><b>لقيت مبالغ صغيرة غريبة في ${MONTHS[m]}، غالبًا اتكتبت بالغلط:</b>${o.map(x=>`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap"><span>${fmt(x.amt)} ج.م على «${esc(x.e.k.name)}»، ${x.where}</span><button class="btn sm gold" data-click="fixodd" data-id="${x.e.k.id}" data-rec="${x.rec||''}">امسحه</button></div>`).join('')}</div>`;
+}
+function openExp(ax){
+  const m=ui.m,items=expItems(ax,m),o=document.createElement('div');o.className='modal';
+  o.innerHTML=`<div class="mbox" style="max-width:520px;max-height:85vh;overflow:auto" role="dialog" aria-modal="true" aria-label="تفاصيل المصاريف"><p style="margin-bottom:10px">مصاريف ${ax==='salary'?'الراتب':'العمل الحر'} في ${MONTHS[m]}</p>
+   ${items.length?items.map(e=>`<div class="rec" style="margin-bottom:6px"><div>${esc(e.k.name)}<br><small>${e.b.v?(e.b.auto?'ثابت شهري '+fmt(e.b.v):'مكتوب '+fmt(e.b.v)):''}${e.b.v&&e.r.length?'، ':''}${e.r.length?e.r.length+' مصروف متسجل '+fmt(sum(e.r.map(x=>x.amt))):''}</small></div><b class="amt">${fmt(e.t)}</b><button class="btn x" data-m="clr" data-id="${e.k.id}" data-ax="${e.axk}">صفّره</button></div>`).join(''):'<p class="muted">مفيش مصاريف في الشهر ده.</p>'}
+   <div class="mact" style="margin-top:12px"><button class="btn" data-m="no">إغلاق</button></div></div>`;
+  document.body.appendChild(o);
+  o.addEventListener('click',e=>{e.stopPropagation();const t=e.target.closest('[data-m]');if(e.target===o||(t&&t.dataset.m==='no')){o.remove();return;}
+    if(t&&t.dataset.m==='clr'){const y=Y(),id=t.dataset.id;if(!y.vals[id]) y.vals[id]=N12(); y.vals[id][m]=0; y.records=y.records.filter(r=>!(r.cat===id&&r.m===m)); o.remove(); save('اتصفّر في '+MONTHS[m]); render(); openExp(ax);}});
+}
+function actions(parts){
+  const M=mkt();
+  return parts.map(p=>{const k=p.g.kind,a=p.amt;
+    if(k==='ef') return `حوّل ${fmt(a)} ج.م لصندوق نقدي أو حساب توفير بعائد يومي، ده صندوق الطوارئ بتاعك.`;
+    if(k==='cd'){const c=Math.floor(a/1000)*1000; return c>=1000?`افتح شهادة بعائد متغير بـ ${fmt(c)} ج.م${a-c>=1?`، والباقي ${fmt(a-c)} سيبه في الصندوق النقدي لحد الشهر الجاي`:''}.`:`مبلغ الشهادات ${fmt(a)} أقل من ألف، سيبه في الصندوق النقدي لحد ما يكمل ألف.`;}
+    if(k==='gold'){const gr=a/M.gold21; return gr>=1?`اشتري حوالي ${gr.toFixed(1)} جرام دهب عيار 21، سبيكة أو جنيه ذهب، بسعر قريب من ${fmt(M.gold21)} للجرام.`:`مبلغ الدهب ${fmt(a)} أقل من جرام، حطه في صندوق دهب أو استنى يتجمع مع الشهر الجاي.`;}
+    if(k==='eq') return `استثمر ${fmt(a)} ج.م في صندوق على مؤشر البورصة المصرية، وخليها عادة شهرية بنفس المبلغ.`;
+    return `حوّل ${fmt(a)} ج.م لـ ${esc(p.g.name)}.`;});
+}
+function masterPlan(m){
+  MEMO={}; const sc=calc(S.year,'salary'),fc=calc(S.year,'free'),ss=suggest('salary',m),sf=suggest('free',m);
+  const mParts={};[...ss.parts,...sf.parts].forEach(p=>{mParts[p.g.id]=mParts[p.g.id]||{g:p.g,amt:0};mParts[p.g.id].amt+=p.amt;});
+  const monthParts=Object.values(mParts),monthAmt=sum(monthParts.map(p=>p.amt));
+  const total=Math.max(0,sc.out[m])+Math.max(0,fc.out[m]),reserve=Math.round(avgLiving()||0);
+  const idle=Math.max(0,Math.round(total-reserve-monthAmt));
+  return {monthParts,monthAmt,total,reserve,idle,idleParts:idle>=500?planFor(idle):[]};
+}
+function masterPanel(m,compact){
+  const pl=masterPlan(m),A=a=>`<div class="alloc">${a.map(p=>`<div class="al k-${p.g.kind}"><span>${esc(p.g.name)}</span><b>${fmt(p.amt)}</b></div>`).join('')}</div>`;
+  const comb={};[...pl.monthParts,...pl.idleParts].forEach(p=>{comb[p.g.id]=comb[p.g.id]||{g:p.g,amt:0};comb[p.g.id].amt+=p.amt;}); const steps=actions(Object.values(comb));
+  if(!pl.monthParts.length&&!pl.idleParts.length) return `<div class="inv"><h2>خطة ميزان ليك في ${MONTHS[m]}</h2><p style="margin:0">مفيش فلوس فايضة للاستثمار دلوقتي. رصيدك ${fmt(pl.total)} ج.م${pl.reserve?` والمفروض يفضل منه ${fmt(pl.reserve)} سيولة لمصاريف شهر`:''}. ركّز الشهر ده إن الفائض يزيد.</p></div>`;
+  return `<div class="inv"><h2>خطة ميزان ليك في ${MONTHS[m]}</h2><p style="margin:0 0 6px">ميزان بص على فائض ${MONTHS[m]} وعلى رصيدك المتراكم كله، وده اللي يقترحه عليك تعمله:</p>
+   <div class="cols" style="gap:16px">
+    <div><h2 style="font-size:16px;margin-top:10px">من فائض الشهر ده ${fmt(pl.monthAmt)} ج.م</h2>${pl.monthParts.length?A(pl.monthParts)+`<button class="btn gold" data-click="apply-month">نفّذ خطة الشهر</button>`:'<p class="muted">مفيش فائض متاح الشهر ده.</p>'}</div>
+    <div><h2 style="font-size:16px;margin-top:10px">من رصيدك المتراكم ${fmt(pl.idle)} ج.م</h2><p class="note" style="margin:0 0 6px">رصيدك ${fmt(pl.total)}، سبنا منه ${fmt(pl.reserve)} سيولة لمصاريف شهر، والباقي فلوس واقفة ممكن تشتغل.</p>${pl.idleParts.length?A(pl.idleParts)+`<button class="btn" data-click="apply-total">نفّذ خطة الرصيد</button>`:'<p class="muted">الرصيد الزيادة أقل من 500 ج.م، سيبه سيولة.</p>'}</div>
+   </div>
+   ${compact?'':`<h2 style="font-size:16px;margin-top:16px">تعمل إيه بالظبط، الخطتين مع بعض</h2><ol class="steps">${steps.map(x=>`<li>${x}</li>`).join('')}</ol>`}
+   <p class="note">اقتراح مبني على أرقامك وحالة السوق في ${mkt().asOf}، وليس استشارة مالية متخصصة. التنفيذ بيسجل التحويلات وتقدر تحذفها من صفحة خطة الاستثمار.</p></div>`;
+}
+function liveNow(yr,mon){
+  const y0=yr!=null?yr:Math.min(S.year,NY),mm=mon!=null?mon:(y0<NY?11:NM),sc=calc(y0,'salary'),fc=calc(y0,'free'),op=st().opening;
+  const sal=sc.out[mm],fr=fc.out[mm],os=+op.salary||0,of=+op.free||0;
+  return {sal,fr,os,of,total:sal+fr+os+of,goals:sum(S.goals.map(goalBal)),tax:taxPot().bal,asOf:`${MONTHS[mm]} ${y0}`};
+}
+function forecast(){
+  if(S.year!==NY) return null;
+  const sc=calc(NY,'salary'),fc=calc(NY,'free'),ms=[];
+  for(let m=0;m<=NM;m++){if(sc.income[m]||sc.exp[m]||fc.income[m]||fc.exp[m]) ms.push(m);}
+  const done=ms.filter(m=>m<NM),base=done.length?done:ms; if(!base.length) return {none:true};
+  const avg=sum(base.map(m=>sc.surplus[m]+fc.surplus[m]))/base.length,left=11-NM,L=liveNow(),due=receivables(NY);
+  return {avg,left,end:L.total+avg*left,due,n:base.length};
 }
 function freeSum(m){
   const map={};let got=0,team=0,cost=0,net=0;
@@ -731,7 +918,7 @@ function records(ax){
   return `<div class="recs">${rs.map(r=>{const k=S.cats[ax].find(c=>c.id===r.cat);return `<div class="rec"><div>${esc(k?k.name:'بند محذوف')}${r.note?` <small>، ${esc(r.note)}</small>`:''}<br><small>${esc(r.d)}</small></div><b class="amt">${fmt(r.amt)}</b><button class="btn x" data-click="del-rec" data-id="${r.id}" aria-label="حذف">حذف</button></div>`;}).join('')}</div>`;
 }
 function investBox(ax){
-  const m=ui.m,s=suggest(ax,m),A=a=>`<div class="alloc">${a.map(p=>`<div class="al"><span>${esc(p.g.name)}</span><b>${fmt(p.amt)}</b><small>${p.note||PRODUCTS[p.g.kind]||''}</small></div>`).join('')}</div>`;
+  const m=ui.m,s=suggest(ax,m),A=a=>`<div class="alloc">${a.map(p=>`<div class="al k-${p.g.kind}"><span>${esc(p.g.name)}</span><b>${fmt(p.amt)}</b><small>${p.note||PRODUCTS[p.g.kind]||''}</small></div>`).join('')}</div>`;
   let contrib='';
   if(ax==='free'){const map={};Y().projects.forEach(p=>{const sp=split(p);payList(p).filter(q=>q.m===m).forEach(q=>{const k=(p.client||'').trim()||'بدون اسم';map[k]=(map[k]||0)+(sp.a?sp.net*q.amt/sp.a:0);});});
     const ks=Object.entries(map).filter(e=>e[1]>0).sort((a,b)=>b[1]-a[1]);
@@ -768,12 +955,15 @@ function pDash(){
   if(!+st().defaultSalary) al.push(['',`اكتب راتبك الثابت من الإعدادات عشان يتملى أوتوماتيك كل شهر`]);
   if(!al.length) al.push(['good','كله تمام في الشهر ده، مفيش بنود عدت ميزانيتها']);
   const ef=S.goals.find(g=>g.kind==='ef'),eft=ef?goalTarget(ef):0;
-  const spend=S.cats.salary.map(k=>({name:k.name,v:catTotal(k,'salary',S.year,m)})).filter(x=>x.v>0).sort((a,b)=>b.v-a.v);
-  return head('لوحة التحكم',`صورة شاملة لفلوسك في ${MONTHS[m]} ${S.year}. اختار أي شهر من الشريط.`)+`<div style="margin:-10px 0 20px"><button class="btn gold" data-click="report">تقرير ${MONTHS[m]} الكامل</button></div>`+onb+
-  `<div class="wallets">${walletCard('salary')}${walletCard('free')}</div>
+  const spend=S.cats.salary.filter(k=>srcOf(k,S.year,m)!=='free').map(k=>({name:k.name,v:catTotal(k,'salary',S.year,m)})).filter(x=>x.v>0).sort((a,b)=>b.v-a.v);
+  return head('لوحة التحكم',`صورة شاملة لفلوسك في ${MONTHS[m]} ${S.year}. اختار أي شهر من الشريط.`)+`<div style="margin:-6px 0 20px"><button class="btn gold" data-click="report">تقرير ${MONTHS[m]} الكامل</button></div>`+onb+
+  `${(()=>{const L=liveNow(S.year,ui.m);return `<div class="live"><div class="live-main"><span>رصيدك المباشر</span><b class="${L.sal+L.fr<0?'neg':''}">${fmt(L.sal+L.fr)} <small>ج.م</small></b><small>الراتب والعمل الحر مع بعض، مجموع فائض كل الشهور لحد آخر ${L.asOf}</small></div>
+   <div class="live-parts"><div><i style="background:var(--sal)"></i><span>من الراتب</span><b>${fmt(L.sal)}</b></div><div><i style="background:var(--fr)"></i><span>من العمل الحر</span><b>${fmt(L.fr)}</b></div>${L.os||L.of?`<div><i style="background:var(--muted)"></i><span>رصيد البداية</span><b>${fmt(L.os+L.of)}</b></div>`:''}<div><i style="background:var(--gold)"></i><span>في الأهداف والاستثمار</span><b>${fmt(L.goals)}</b></div>${L.tax?`<div><i style="background:var(--warn)"></i><span>حصالة الضرايب</span><b>${fmt(L.tax)}</b></div>`:''}</div></div>`;})()}
+  <div class="wallets">${walletCard('salary')}${walletCard('free')}</div>
+  ${masterPanel(m,true)}
   <div class="kpis">
-   <div class="kpi"><span>دخلك الكلي في السنة</span><b>${fmt(sum(sc.income)+sum(fc.income))}</b><small>راتب ${fmt(sum(sc.income))}، عمل حر ${fmt(sum(fc.income))}</small></div>
-   <div class="kpi"><span>متوقع آخر السنة</span><b>${cur(sc.out[11]+fc.out[11])}</b><small>لو الثابت فضل زي ما هو</small></div>
+   <div class="kpi"><span>دخلك الفعلي في السنة</span><b>${fmt(sum(sc.income.filter((v,i)=>!future(S.year,i)))+sum(fc.income.filter((v,i)=>!future(S.year,i))))}</b><small>لحد النهارده، من غير الشهور الجاية</small></div>
+   ${(()=>{const f=forecast();return `<div class="kpi"><span>توقع ميزان لآخر السنة</span>${!f?'<b>—</b><small>التوقع للسنة الحالية بس</small>':f.none?'<b>—</b><small>سجّل شهر واحد على الأقل وهيظهر التوقع</small>':`<b>${cur(f.end)}</b><small>لو كملت بمتوسط فائضك الفعلي ${fmt(f.avg)} في الشهر${f.due?`، وممكن يزيد ${fmt(f.due)} لو حصّلت كل مستحقاتك`:''}</small>`}</div>`;})()}
    <div class="kpi"><span>في الأهداف والاستثمار</span><b>${fmt(sum(S.goals.map(goalBal)))}</b><small>${S.goals.length} أهداف</small></div>
    <div class="kpi"><span>صندوق الطوارئ</span><b>${Math.round(pc(ef?goalBal(ef):0,eft))}%</b><small>من هدف ${fmt(eft)} ج.م</small></div>
   </div>
@@ -788,11 +978,11 @@ function pSalary(){
   `<div class="cols"><div>${walletCard('salary',true)}<div style="height:20px"></div>
    <div class="panel"><div class="ph"><div><h2>سجّل مصروف</h2><p class="hint" style="margin:0">بيتضاف على البند في ${MONTHS[m]} ويتخصم من الراتب فورًا.</p></div></div>${quickAdd('salary')}${records('salary')}</div>
    ${deficitBox()}
-   <div class="panel"><h2>الخصم خطوة بخطوة</h2><p class="hint">الخانات المنقطة بالذهبي اتملت تلقائي من البنود الثابتة. جنب كل بند تختار يتدفع من الراتب أو من العمل الحر، وزرار حذف بيشيل البند من الشهر ده بس.</p>${ledger('salary')}</div></div>
+   ${oddBox(m)}<div class="panel"><h2>الخصم خطوة بخطوة</h2><p class="hint">الخانات المنقطة بالذهبي اتملت تلقائي من البنود الثابتة. جنب كل بند تختار يتدفع من الراتب أو من العمل الحر في الشهر ده بس، وزرار حذف بيشيل البند من الشهر ده بس. الاختيار الدايم لكل بند من الإعدادات.</p>${ledger('salary')}</div></div>
    <div>${investBox('salary')}
    ${(()=>{const pl=salaryPlan(m);if(!pl) return '<div class="panel"><h2>خطة إدارة الراتب</h2><div class="empty">اكتب راتب الشهر وهتظهرلك الخطة</div></div>';
      return `<div class="panel"><h2>خطة إدارة راتب ${MONTHS[m]}: ${pl.t}</h2><p class="hint" style="margin-bottom:6px">${pl.who}</p><p style="margin:0">${pl.why}</p>
-     <div class="plan-b">${pl.b.map(x=>`<div class="pb"><span>${x[0]}</span><span class="muted" style="font-size:12.5px">المخطط <b style="color:var(--ink)">${fmt(x[1])}</b></span><span style="font-size:12.5px" class="muted">الفعلي <b class="${x[0].includes('ادخار')||x[0].includes('احتياطي')||x[0].includes('سداد')?(x[2]<x[1]?'neg':'pos'):(x[2]>x[1]?'neg':'pos')}">${fmt(x[2])}</b></span><small>${x[3]}</small></div>`).join('')}</div>
+     <div class="plan-b">${pl.b.map((x,bi)=>`<div class="pb b${bi}"><span>${x[0]}</span><span class="muted" style="font-size:12.5px">المخطط <b style="color:var(--ink)">${fmt(x[1])}</b></span><span style="font-size:12.5px" class="muted">الفعلي <b class="${x[0].includes('ادخار')||x[0].includes('احتياطي')||x[0].includes('سداد')?(x[2]<x[1]?'neg':'pos'):(x[2]>x[1]?'neg':'pos')}">${fmt(x[2])}</b></span><small>${x[3]}</small></div>`).join('')}</div>
      <h2 style="font-size:16px;margin-top:6px">اعمل إيه الشهر ده</h2><ol class="steps">${pl.steps.map(x=>`<li>${x}</li>`).join('')}</ol></div>`;})()}
    </div></div>
   <div class="panel"><h2>السنة كلها</h2><p class="hint">كل شهر بيبدأ بباقي الشهر اللي قبله. دوس على أي شهر تفتحه.</p>${yearTable('salary')}</div>`;
@@ -862,7 +1052,7 @@ function pClients(){
      <div><span>اتحصل</span><b class="pos">${fmt(c.got)}</b></div><div><span>متبقي عنده</span><b class="${c.due?'neg':''}">${fmt(c.due)}</b></div></div></div>`).join('')}</div>
    <div class="sumcards" style="margin-top:18px"><div class="sc"><span>صافي كل العملاء</span><b>${fmt(cs.fn)}</b></div><div class="sc"><span>قيمة كل المشاريع</span><b>${fmt(sum(cs.list.map(c=>c.gross)))}</b></div><div class="sc"><span>تيم وتكاليف</span><b class="neg">${fmt(sum(cs.list.map(c=>c.team)))}</b></div><div class="sc"><span>متبقي عند العملاء</span><b>${fmt(sum(cs.list.map(c=>c.due)))}</b></div><div class="sc"><span>العمل الحر من دخلك الكلي</span><b>${pc(cs.fn,cs.tot).toFixed(1)}%</b></div></div>`
    :'<div class="empty">لما تسجل مشاريع، كل عميل هيظهر هنا بكارت لوحده بلونه.</div>';
-  return `<div class="phead"><div><h1>العملاء ${S.year}</h1><p>كل عميل في كارت بلونه اللي اخترته. الأهمية حسب نسبته من صافي العمل الحر: أساسي من 30%، مهم من 15%، متوسط من 5%.</p></div></div>
+  return lockBar()+`<div class="phead"><div><h1>العملاء ${S.year}</h1><p>كل عميل في كارت بلونه اللي اخترته. الأهمية حسب نسبته من صافي العمل الحر: أساسي من 30%، مهم من 15%، متوسط من 5%.</p></div></div>
   ${body}${cs.list.length?`<div class="panel" style="margin-top:20px"><h2>توزيع الصافي على العملاء</h2>${donut(cs.list.slice(0,8).map(c=>({name:c.name,c:c.color,v:Math.max(0,c.net)})),'صافي العمل الحر')}</div>`:''}`;
 }
 function pGoals(){
@@ -871,7 +1061,7 @@ function pGoals(){
   const rate={ef:M.cbe-2,cd:M.cdVar};
   const cards=['ef','cd','gold','eq'].map(k=>{const g=S.goals.find(x=>x.kind===k),b=goalBal(g);
     const second=k==='ef'?['الهدف',fmt(eft)]:k==='gold'?['يساوي تقريبا',(b/M.gold21).toFixed(1)+' جرام عيار 21']:k==='cd'?[`بعد سنة بعائد ${rate.cd}%`,fmt(b*(1+rate.cd/100))]:['العائد','متغير'];
-    return `<div class="goal"><div class="goal-h">${ring(W.w[k],COL[k])}<div><span>نصيبه من كل فائض</span><b>${KN[k]}</b></div></div>
+    return `<div class="goal k-${k}"><div class="goal-h">${ring(W.w[k],COL[k])}<div><span>نصيبه من كل فائض</span><b>${KN[k]}</b></div></div>
      <div class="gstat"><div><span>رصيدك فيه</span><b>${fmt(b)}</b></div><div><span>${second[0]}</span><b>${second[1]}</b></div></div>
      ${k==='ef'&&eft?`<div class="bud" style="max-width:none"><i style="width:${Math.min(100,pc(b,eft))}%"></i></div>`:''}
      <p class="why">${W.why[k]}</p><p class="prod"><b>تحطها فين:</b> ${PRODUCTS[k]}</p></div>`;}).join('');
@@ -880,6 +1070,7 @@ function pGoals(){
   `<div class="panel"><div class="ph"><div><h2>السوق النهارده</h2><p class="hint" style="margin:0">آخر تحديث ${M.asOf}. اجتماع البنك المركزي الجاي ${M.next}.</p></div><button class="btn gold" data-click="mkt-import" ${ui.mkt==='loading'?'disabled':''}>${ui.mkt==='loading'?'بيدور على تحديث...':'تحديث بيانات السوق'}</button></div>
    ${ui.mkt==='same'||ui.mkt==='nodb'?`<div class="mkt-req"><b>${ui.mkt==='same'?'دي أحدث بيانات متاحة دلوقتي.':'مش قادر يوصل لخدمة التحديث من النسخة دي.'}</b> عشان أجيب أرقام جديدة من السوق، ابعتلي الجملة دي في الشات وأنا هبحث وأحدث ميزان مباشرة، والصفحة هتاخد الأرقام الجديدة أول ما تدوس الزرار تاني.<code>${MKT_REQ}</code><button class="btn sm" data-click="copy-req">انسخ الجملة</button> ${ui.mkt==='nodb'?'<button class="btn sm" data-click="mkt-file">عندي ملف تحديث</button>':''}</div>`:''}
    <div class="mkt"><div><span>فايدة البنك المركزي</span><b>${M.cbe}%</b></div><div><span>التضخم السنوي في المدن</span><b>${M.inflation}%</b></div><div><span>التضخم الأساسي</span><b>${M.core}%</b></div><div><span>أعلى شهادة بعائد متغير</span><b>${M.cdVar}%</b></div><div><span>جرام عيار 21</span><b>${fmt(M.gold21)}</b></div><div><span>الدولار</span><b>${M.usd}</b></div><div><span>البورصة من أول السنة</span><b dir="ltr">${M.egxYtd>0?'+':''}${M.egxYtd}%</b></div></div></div>
+  ${masterPanel(ui.m)}
   <div class="goals">${cards}</div>
   <div class="cols"><div class="panel"><h2>سجّل تحويل في ${MONTHS[ui.m]}</h2><p class="hint">لو حولت فلوس فعلا من غير زرار الاقتراح، سجلها هنا عشان تتخصم من المحفظة.</p>
    <div class="qa"><select data-k="tr-ax" aria-label="من"><option value="salary">من محفظة الراتب</option><option value="free">من محفظة العمل الحر</option></select>
@@ -894,22 +1085,26 @@ function pSettings(){
   const s=st(),yrs=yearList();
   const catRows=ax=>S.cats[ax].map(k=>`<tr><td><input type="text" data-act="cat" data-axis="${ax}" data-f="name" data-id="${k.id}" data-k="cn-${k.id}" value="${esc(k.name)}"></td>
    <td><select data-act="cat" data-axis="${ax}" data-f="kind" data-id="${k.id}" data-k="ck-${k.id}"><option value="need" ${k.kind==='need'?'selected':''}>احتياج</option><option value="want" ${k.kind==='want'?'selected':''}>رغبة</option></select></td>
+   <td>${ax==='salary'?`<select data-act="cat" data-axis="salary" data-f="src" data-id="${k.id}" data-k="cs-${k.id}"><option value="" ${k.src!=='free'?'selected':''}>الراتب</option><option value="free" ${k.src==='free'?'selected':''}>العمل الحر</option></select>`:'<span class="muted">العمل الحر</span>'}</td>
    <td><input type="number" min="0" step="any" data-act="cat" data-axis="${ax}" data-f="fixed" data-id="${k.id}" data-k="cf-${k.id}" value="${+k.fixed||''}" placeholder="متغير"></td>
    <td><input type="number" min="0" step="any" data-act="cat" data-axis="${ax}" data-f="budget" data-id="${k.id}" data-k="cb-${k.id}" value="${+k.budget||''}" placeholder="بدون"></td>
    <td><select data-act="cat" data-axis="${ax}" data-f="endM" data-id="${k.id}" data-k="cem-${k.id}">${MONTHS.map((n,i)=>`<option value="${i}" ${+k.endM===i?'selected':''}>${n}</option>`).join('')}</select>
     <select data-act="cat" data-axis="${ax}" data-f="endY" data-id="${k.id}" data-k="cey-${k.id}"><option value="0" ${!+k.endY?'selected':''}>مستمر</option>${yrs.map(v=>`<option value="${v}" ${+k.endY===v?'selected':''}>${v}</option>`).join('')}</select></td>
    <td><button class="btn x" data-click="del-cat" data-axis="${ax}" data-id="${k.id}">حذف</button></td></tr>`).join('');
   const tbl=(ax,t)=>`<div class="panel"><div class="ph"><div><h2>${t}</h2><p class="hint" style="margin:0">المبلغ الثابت بيتخصم أوتوماتيك كل شهر. الميزانية حد أقصى بينبهك لو عديته. لو البند ليه نهاية زي قسط، اختار شهر وسنة آخر قسط.</p></div><button class="btn" data-click="add-cat" data-axis="${ax}">إضافة بند</button></div>
-   <div class="scroll"><table class="tbl cattbl"><thead><tr><th>البند</th><th>النوع</th><th>ثابت شهري</th><th>ميزانية شهرية</th><th>آخر شهر</th><th></th></tr></thead><tbody>${catRows(ax)}</tbody></table></div></div>`;
-  return `<div class="phead"><div><h1>الإعدادات</h1><p>البيانات محفوظة في المتصفح على جهازك بس. خد نسخة احتياطية كل فترة.</p></div></div>
+   <div class="scroll"><table class="tbl cattbl"><thead><tr><th>البند</th><th>النوع</th><th>بيتدفع من</th><th>ثابت شهري</th><th>ميزانية شهرية</th><th>آخر شهر</th><th></th></tr></thead><tbody>${catRows(ax)}</tbody></table></div></div>`;
+  return lockBar()+`<div class="phead"><div><h1>الإعدادات</h1><p>البيانات محفوظة في المتصفح على جهازك بس. خد نسخة احتياطية كل فترة.</p></div></div>
   <div class="panel"><h2>الأساسيات</h2><div class="set">
    <label>الراتب الثابت كل شهر<input type="number" min="0" step="any" data-act="set" data-f="defaultSalary" data-k="s-ds" value="${+s.defaultSalary||''}" placeholder="0"><small>بيتملى أوتوماتيك في كل شهر، وتقدر تغيره لأي شهر لوحده</small></label>
    <label>بداية الحساب<span style="display:flex;gap:6px"><select data-act="set" data-f="startM" data-k="s-sm">${MONTHS.map((n,i)=>`<option value="${i}" ${+s.startM===i?'selected':''}>${n}</option>`).join('')}</select><select data-act="set" data-f="startY" data-k="s-sy">${yrs.map(v=>`<option ${+s.startY===v?'selected':''}>${v}</option>`).join('')}</select></span><small>الشهور اللي قبلها مش بتتحسب</small></label>
    <label>السنين المتاحة<span style="display:flex;gap:6px;align-items:center"><input type="number" min="2000" max="2100" data-act="set" data-f="yearFrom" data-k="s-yf" value="${yearList()[0]}" aria-label="من سنة"><span class="muted">لـ</span><input type="number" min="2000" max="2100" data-act="set" data-f="yearTo" data-k="s-yt" value="${yearList().slice(-1)[0]}" aria-label="لسنة"></span><small>غير السنين زي ما تحب، أو زود سنة من قايمة السنة. السنين اللي فيها بيانات بتفضل ظاهرة دايمًا</small></label>
-   <label>رصيد الراتب في البداية<input type="number" step="any" data-act="opening" data-f="salary" data-k="s-os" value="${+s.opening.salary||''}" placeholder="0"><small>الفلوس اللي كانت معاك من الراتب أول ما بدأت</small></label>
-   <label>رصيد العمل الحر في البداية<input type="number" step="any" data-act="opening" data-f="free" data-k="s-of" value="${+s.opening.free||''}" placeholder="0"></label>
+   <label>رصيد الراتب في البداية<input type="number" step="any" data-act="opening" data-f="salary" data-k="s-os" value="${+s.opening.salary||''}" placeholder="0"><small>فلوس كانت معاك قبل ما تبدأ ميزان، مش الراتب. مش بتدخل في المرحّل، بتظهر بس في رصيدك المباشر</small></label>
+   <label>رصيد العمل الحر في البداية<input type="number" step="any" data-act="opening" data-f="free" data-k="s-of" value="${+s.opening.free||''}" placeholder="0"><small>نفس الفكرة، فلوس شغل حر كانت معاك قبل ما تبدأ</small></label>
   </div></div>
   ${tbl('salary','بنود الراتب')}${tbl('free','بنود مصاريف العمل الحر')}
+  <div class="panel"><h2>الرقم السري</h2><p class="hint">لما تحط رقم سري، كل أرقام الفلوس في كل صفحات ميزان بتبقى مموهة لحد ما تكتبه، وبتتخفي تاني لوحدها أول ما تقفل التطبيق.</p>
+   <div class="qa">${S.settings.pinHash?'<input type="password" inputmode="numeric" maxlength="8" placeholder="الرقم الحالي" data-k="pin-old" aria-label="الرقم الحالي">':''}<input type="password" inputmode="numeric" maxlength="8" placeholder="${S.settings.pinHash?'رقم جديد':'رقم سري من 4 لـ 8 أرقام'}" data-k="pin-new" aria-label="رقم جديد"><input type="password" inputmode="numeric" maxlength="8" placeholder="اكتبه تاني" data-k="pin-new2" aria-label="تأكيد"><button class="btn gold" data-click="setpin">${S.settings.pinHash?'غيّر الرقم':'فعّل الرقم السري'}</button>${S.settings.pinHash?'<button class="btn x" data-click="rmpin">شيل الرقم السري</button>':''}</div>
+   <p class="note" style="margin-top:0">ده غطا للخصوصية لو حد ماسك موبايلك أو شايف شاشتك. لو نسيت الرقم، شيله من هنا بالرقم القديم، أو امسح بيانات التطبيق ورجّع نسختك الاحتياطية.</p></div>
   <div class="panel"><h2>الاستثمار والضرايب</h2><div class="set">
    <label>احتياطي الضرايب من العمل الحر<input type="number" min="0" max="50" step="any" data-act="set" data-f="taxPct" data-k="s-tax" value="${+s.taxPct||''}" placeholder="0"><small>نسبة بتتحجز من صافي كل تحصيل، حط صفر لو مش عايزها</small></label>
    <label>درجة المخاطرة اللي تناسبك<select data-act="set" data-f="profile" data-k="s-pr">${Object.entries(PROFILES).map(([k,p])=>`<option value="${k}" ${s.profile===k?'selected':''}>${p.label}</option>`).join('')}</select></label>
@@ -933,8 +1128,8 @@ async function saveFile(name,data,type){
 /* ---------- monthly report ---------- */
 function reportHTML(m){
   MEMO={}; const yr=S.year,sc=calc(yr,'salary'),fc=calc(yr,'free'),fs=freeSum(m),pl=salaryPlan(m),sgS=suggest('salary',m),sgF=suggest('free',m),M=mkt(),t=taxPot();
-  const risks=freeRisk(m),cats=S.cats.salary.filter(k=>k.src!=='free').map(k=>[k.name,catTotal(k,'salary',yr,m),k.kind]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]);
-  const ffc=S.cats.salary.filter(k=>k.src==='free').map(k=>[k.name,catTotal(k,'salary',yr,m)]).filter(x=>x[1]>0);
+  const risks=freeRisk(m),cats=S.cats.salary.filter(k=>srcOf(k,yr,m)!=='free').map(k=>[k.name,catTotal(k,'salary',yr,m),k.kind]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]);
+  const ffc=S.cats.salary.filter(k=>srcOf(k,yr,m)==='free').map(k=>[k.name,catTotal(k,'salary',yr,m)]).filter(x=>x[1]>0);
   const salPct=sc.income[m]?Math.round(sc.exp[m]/sc.income[m]*100):0;
   const tips=[];
   if(sc.income[m]&&salPct>=50) tips.push(`مصاريف المعيشة ${salPct}% من الراتب. الهدف الشهر الجاي إنها تنزل تحت ${Math.max(50,salPct-5)}%.`);
@@ -1023,6 +1218,14 @@ function ask(msg,ok){
   document.addEventListener('keydown',esc_);
   o.addEventListener('click',e=>{e.stopPropagation(); const t=e.target.closest('[data-m]'); if(e.target===o) close(false); else if(t) close(t.dataset.m==='ok');});
 }
+async function hashPin(p){try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('mizan:'+p));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');}catch(e){let h=0;for(const c of 'mizan:'+p)h=(h*31+c.charCodeAt(0))|0;return 'x'+h;}}
+const locked=()=>!!S.settings.pinHash&&!ui.unlocked;
+function lockBar(){
+  if(!S.settings.pinHash) return '';
+  return locked()?`<div class="lockbar"><b>الأرقام مخفية</b><input type="password" inputmode="numeric" autocomplete="off" maxlength="8" placeholder="••••" data-k="pin-in" data-enter="unlock" aria-label="الرقم السري"><button class="btn gold sm" data-click="unlock">اظهر الأرقام</button></div>`
+   :`<div class="lockbar" style="border-color:rgba(70,211,156,.4);background:linear-gradient(135deg,rgba(70,211,156,.15),rgba(70,211,156,.04))"><b>الأرقام ظاهرة</b><button class="btn sm" data-click="relock">اخفيها تاني</button></div>`;
+}
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&ui.unlocked){ui.unlocked=false;render();}});
 function render(){
   MEMO={}; Y();
   document.documentElement.dataset.theme=st().theme||'dark';
@@ -1033,7 +1236,7 @@ function render(){
    <div class="side-foot">${syncBadge()}<button class="btn sm gold" data-click="report">تقرير الشهر</button><label for="yr">السنة</label><select id="yr" data-act="year" data-k="year">${yrs.map(v=>`<option value="${v}" ${v===S.year?'selected':''}>${v}</option>`).join('')}<option value="add">+ أضف سنة جديدة</option></select>
    <button class="btn sm" data-click="theme">${st().theme==='light'?'الوضع الليلي':'الوضع النهاري'}</button></div>`;
   const V={dash:pDash,salary:pSalary,free:pFree,clients:pClients,goals:pGoals,settings:pSettings};
-  document.getElementById('view').innerHTML=V[ui.page]();
+  const vw=document.getElementById('view'); vw.innerHTML=V[ui.page](); vw.classList.toggle('locked',locked());
   const ms=document.querySelector('.months'),on=ms&&ms.querySelector('.mo.on');
   if(on){const r=ms.getBoundingClientRect(); if(r.top>=0&&r.bottom<=innerHeight) on.scrollIntoView({inline:'center',block:'nearest'});}
 }
@@ -1053,7 +1256,7 @@ document.addEventListener('change',e=>{
       if(f==='client'){const nw=v.trim(); S.colors=S.colors||{}; const still=Object.values(S.years).some(yy=>yy.projects.some(x=>x!==p&&(x.client||'').trim()===old)); if(old&&nw&&S.colors[old]&&!S.colors[nw]){S.colors[nw]=S.colors[old]; if(!still) delete S.colors[old];} clientColor(nw);} break;}
     case 'tm': {const mb=P().team.find(x=>x.id===d.id); mb[d.f]=d.f==='amt'?n:v; break;}
     case 'pay': {const q=P().pays.find(x=>x.id===d.id); q[d.f]=d.f==='m'?+v:n; break;}
-    case 'cat': {const k=S.cats[d.axis].find(x=>x.id===d.id); k[d.f]=(d.f==='name'||d.f==='kind')?v:n; break;}
+    case 'cat': {const k=S.cats[d.axis].find(x=>x.id===d.id); k[d.f]=(d.f==='name'||d.f==='kind'||d.f==='src')?v:n; break;}
     case 'goal': {const g=S.goals.find(x=>x.id===d.id); g[d.f]=(d.f==='name'||d.f==='kind')?v:n; break;}
     case 'set': st()[d.f]=d.f==='profile'?v:n; break;
     case 'opening': st().opening[d.f]=n; break;
@@ -1087,8 +1290,8 @@ document.addEventListener('click',e=>{
     case 'add-pay': P().pays.push({id:uid(),m,amt:0}); break;
     case 'del-pay': {const p=P(); p.pays=p.pays.filter(x=>x.id!==d.id); break;}
     case 'status': {const p=P(); p.status=d.v; if(d.v==='done'&&p.doneM==null) p.doneM=m; if(d.v==='inst'&&!p.pays.length) p.pays.push({id:uid(),m,amt:0}); ui.open[p.id]=true; msg=d.v==='done'?'اتسجل التحصيل':d.v==='none'?'المبلغ رجع مستحق عند العميل':'اكتب الدفعات'; break;}
-    case 'ff-add': {const nm=val('ff-name').trim(),amt=parseFloat(val('ff-amt'))||0; if(!nm){toast('اكتب اسم البند');return;} const k=cat(nm,'need'); k.src='free'; if(val('ff-rep')==='fixed') k.fixed=amt; else {if(!y.vals[k.id]) y.vals[k.id]=N12(); y.vals[k.id][m]=amt;} S.cats.salary.push(k); msg='اتضاف وهيتخصم من العمل الحر'; break;}
-    case 'src': {const k=S.cats.salary.find(x=>x.id===d.id); k.src=d.v==='free'?'free':''; msg=d.v==='free'?'البند ده بقى بيتخصم من العمل الحر':'البند رجع للراتب'; break;}
+    case 'ff-add': {const nm=val('ff-name').trim(),amt=parseFloat(val('ff-amt'))||0; if(!nm){toast('اكتب اسم البند');return;} const k=cat(nm,'need'); if(val('ff-rep')==='fixed'){k.src='free'; k.fixed=amt;} else {k.adhoc=true; y.srcM=y.srcM||{}; y.srcM[k.id]={[m]:'free'}; if(!y.vals[k.id]) y.vals[k.id]=N12(); y.vals[k.id][m]=amt;} S.cats.salary.push(k); msg='اتضاف وهيتخصم من العمل الحر'; break;}
+    case 'src': {const k=S.cats.salary.find(x=>x.id===d.id); y.srcM=y.srcM||{}; const o=y.srcM[k.id]||(y.srcM[k.id]={}); const def=k.src==='free'?'free':'salary'; if(d.v===def) delete o[m]; else o[m]=d.v; msg=d.v==='free'?`في ${MONTHS[m]} بس، البند ده هيتخصم من العمل الحر`:`في ${MONTHS[m]} بس، البند ده رجع للراتب`; break;}
     case 'move-cover': {const def=-calc(S.year,'salary').surplus[m]; if(def>0){y.moves=y.moves||[]; y.moves.push({id:uid(),m,amt:Math.round(def)}); msg='العجز اتغطى من العمل الحر';} break;}
     case 'del-move': y.moves=(y.moves||[]).filter(v=>v.id!==d.id); break;
     case 'hide': {y.hide=y.hide||{}; const a=y.hide[d.id]||(y.hide[d.id]=[]); if(!a.includes(m)) a.push(m); y.records=y.records.filter(r=>!(r.cat===d.id&&r.m===m)); msg='اتحذف من '+MONTHS[m]+' بس'; break;}
@@ -1101,9 +1304,19 @@ document.addEventListener('click',e=>{
     case 'del-goal': ask('حذف الهدف؟ التحويلات اللي عليه هتتمسح كمان.',()=>{S.goals=S.goals.filter(g=>g.id!==d.id); Object.values(S.years).forEach(yy=>yy.transfers=yy.transfers.filter(t=>t.goal!==d.id)); save(); render();}); return;
     case 'tr-add': {const amt=parseFloat(val('tr-a'))||0; if(amt<=0){toast('اكتب المبلغ الأول');return;} y.transfers.push({id:uid(),axis:val('tr-ax'),goal:val('tr-g'),m,amt}); msg='اتحول'; break;}
     case 'del-tr': y.transfers=y.transfers.filter(t=>t.id!==d.id); break;
+    case 'expd': if(locked()){toast('اكتب الرقم السري الأول');return;} openExp(d.axis); return;
+    case 'unlock': {const p=val('pin-in'); hashPin(p).then(h=>{if(h===S.settings.pinHash){ui.unlocked=true;render();toast('الأرقام ظاهرة');}else toast('الرقم غلط');}); return;}
+    case 'relock': ui.unlocked=false; render(); return;
+    case 'setpin': {const o=val('pin-old'),n=val('pin-new'),n2=val('pin-new2'); if(!/^\d{4,8}$/.test(n)){toast('الرقم لازم يكون من 4 لـ 8 أرقام');return;} if(n!==n2){toast('الرقمين مش زي بعض');return;}
+      (S.settings.pinHash?hashPin(o):Promise.resolve(null)).then(ho=>{if(S.settings.pinHash&&ho!==S.settings.pinHash){toast('الرقم الحالي غلط');return;} hashPin(n).then(h=>{S.settings.pinHash=h; ui.unlocked=false; save('الرقم السري اتفعّل'); render();});}); return;}
+    case 'rmpin': {hashPin(val('pin-old')).then(h=>{if(h!==S.settings.pinHash){toast('اكتب الرقم الحالي صح الأول');return;} delete S.settings.pinHash; ui.unlocked=false; save('الرقم السري اتشال'); render();}); return;}
+    case 'fixodd': {if(d.rec) y.records=y.records.filter(r=>r.id!==d.rec); else {if(!y.vals[d.id]) y.vals[d.id]=N12(); y.vals[d.id][m]=null; const k=S.cats.salary.concat(S.cats.free).find(c=>c.id===d.id); if(k&&!+k.fixed){} } msg='اتمسح'; break;}
+    case 'apply-month': {MEMO={}; ['salary','free'].forEach(ax=>{const sg=suggest(ax,m); sg.parts.forEach(p=>y.transfers.push({id:uid(),axis:ax,goal:p.g.id,m,amt:Math.round(p.amt)})); MEMO={};}); msg='اتنفذت خطة فائض الشهر'; break;}
+    case 'apply-total': {MEMO={}; const pl=masterPlan(m); if(!pl.idle) return; const sc=calc(S.year,'salary'),fc=calc(S.year,'free'),a=Math.max(0,sc.out[m]),b=Math.max(0,fc.out[m]),tt=a+b||1;
+      pl.idleParts.forEach(p=>{const fromS=Math.round(p.amt*a/tt),fromF=Math.round(p.amt)-fromS; if(fromS>0) y.transfers.push({id:uid(),axis:'salary',goal:p.g.id,m,amt:fromS}); if(fromF>0) y.transfers.push({id:uid(),axis:'free',goal:p.g.id,m,amt:fromF});}); msg='اتنفذت خطة الرصيد المتراكم'; break;}
     case 'apply': {MEMO={}; const sg=suggest(d.axis,m); sg.parts.forEach(p=>y.transfers.push({id:uid(),axis:d.axis,goal:p.g.id,m,amt:Math.round(p.amt)})); msg='اتوزع الفائض على الأهداف'; break;}
     case 'export': {saveFile(`mizan-${new Date().toISOString().slice(0,10)}.json`,JSON.stringify(S),'application/json').then(ok=>{if(ok){S.lastBackup=Date.now(); save('اتصدرت النسخة');}}); return;}
-    case 'report': openReport(); return;
+    case 'report': if(locked()){toast('اكتب الرقم السري الأول');return;} openReport(); return;
     case 'tax-pay': {const a=parseFloat(val('tax-amt'))||0; if(a<=0){toast('اكتب المبلغ');return;} S.taxPaid.push({id:uid(),y:S.year,m,amt:a}); msg='اتسجلت دفعة الضرايب'; break;}
     case 'del-tax': S.taxPaid=S.taxPaid.filter(x=>x.id!==d.id); break;
     case 'import': ui.imp='all'; document.getElementById('importFile').click(); return;
@@ -1118,7 +1331,7 @@ document.addEventListener('click',e=>{
         y.records=y.records.filter(r=>r.m!==mm); y.transfers=y.transfers.filter(t=>t.m!==mm); y.moves=(y.moves||[]).filter(v=>v.m!==mm);
         y.projects=y.projects.filter(p=>p.m!==mm);
         y.projects.forEach(p=>{p.pays=p.pays.filter(q=>q.m!==mm); if(p.status==='done'&&+p.doneM===mm){p.status='none';p.doneM=null;}});
-        y.hide=y.hide||{}; Object.keys(y.hide).forEach(k=>y.hide[k]=y.hide[k].filter(x=>x!==mm));
+        y.hide=y.hide||{}; Object.keys(y.hide).forEach(k=>y.hide[k]=y.hide[k].filter(x=>x!==mm)); Object.values(y.srcM||{}).forEach(o=>{delete o[mm];});
         if(hard) ['salary','free'].forEach(ax=>S.cats[ax].forEach(c=>{if(+c.fixed){(y.hide[c.id]=y.hide[c.id]||[]).push(mm);}}));
         save('اتمسح '+MONTHS[mm]+' بس'); render();});
       return;}
